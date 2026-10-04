@@ -1,0 +1,15 @@
+{
+  "campaign": "arc2",
+  "generation_tool": "built-in image_gen",
+  "generated_utc_date": "2026-10-04",
+  "prompt": "Use case: stylized-concept. Asset type: premium wide landscape hero illustration for an ARC-AGI-2 research notebook. Primary request: show abstract visual reasoning as beautifully arranged small colored square grids, with a single coherent geometric pattern being discovered between several examples and a new grid. Style: museum-quality Bauhaus screenprint and textured paper collage, refined editorial science-book cover, warm ivory paper with black, deep blue, red, and golden yellow geometric forms, precise yet tactile. Composition: crisp tiny grid motifs resolve into larger interlocking geometric shapes, strong visual rhythm, generous negative space, exceptionally thoughtful, elegant, human-designed composition. Illustrative invented grids only, no actual benchmark tasks or claimed solution. No robots, brains, circuitry, glowing neon, medals, scores, logos, lettering, text, or watermark. Landscape 16:9 high resolution.",
+  "sha256": "36ea64782f401c568e118f9793b68d4c4ad1f2a9c999361d94da199c4363bba3",
+  "bytes": 2410119,
+  "dimensions": [
+    1672,
+    941
+  ],
+  "rotation_cadence_notebook_versions": 10,
+  "kaggle_versions_using_asset": [],
+  "content_role": "Illustrative cover art with invented grids/environment. No actual benchmark tasks or scientific result depicted."
+}
