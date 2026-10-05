@@ -1,0 +1,75 @@
+{
+  "bundled_data": "Synthetic3x3 fixture only; no task panels/training grids/held targets/prediction grids/models/weights/submission artifacts",
+  "component": "monochrome-cavities",
+  "conceptual_source": {
+    "commit": "635de4902a5fb4e376f27333feaa396d3f5dfdcb",
+    "license": "MIT",
+    "license_verified_pinned_primary_source": true,
+    "public_reference_task_already_read": "00d62c1b",
+    "readme": "https://github.com/michaelhodel/arc-dsl/blob/635de4902a5fb4e376f27333feaa396d3f5dfdcb/README.md",
+    "repository": "michaelhodel/arc-dsl"
+  },
+  "historical_experiment": {
+    "augmented_solved": 5,
+    "evaluation_private_test_answer_files_opened": false,
+    "evaluator_boundary": "Separate process checks recorded input binding and both prediction seals before held TRAIN target read",
+    "experiment": "arc2-original-cavity-train-lodo-20261005-v1",
+    "frozen_receipt_sha256": {
+      "evaluator_pre_target_gate.json": "84a086908a5a06632fea8d51b42c4f1cea4cc7b0c8c5465e3d0b1fed868e5f15",
+      "frozen_protocol.json": "f5dadffdd02e564691db1f94bc6492aff676d5d9180ecb323df49863ffa89986",
+      "preparation_receipt.json": "fe3bce8a513ba3c60ad0d2a086ef82c822eb6bf0be05c5ea14d8721212f0fd36",
+      "solver_output/augmented_prediction_seal.json": "570db3cf0415e21b68adf50019a72dcc3419e4851b90d0cbfdcd20d29320aab3",
+      "solver_output/augmented_predictions.json": "b672ad78853b300e14962d28d24f26e276bada7a6f0d32cf7e036e737181544b",
+      "solver_output/execution_receipt.json": "33b265e8116bda51c4a8166dadeb8bca25c783a90055a8a722f8d388e81e062d",
+      "solver_output/parent_prediction_seal.json": "c51b3aad48841723f5a6a17857dbc0c53f34fc78c73d9749b8ab245bffc384f9",
+      "solver_output/parent_predictions.json": "f67ba3e6567aa4ca2061fe4246856e0d663119c586ebe88713c56e05c376661c",
+      "supervisor_receipt.json": "b83e39ebf7e1146672f69216cf60476df982d5f6b5397e135864f4f7e269ee9c",
+      "synthetic_receipt.json": "fe94eabd1c2611d99ec1f50e77bd76aa3bf20b6a7cc271b9fef345cd656596cd",
+      "terminal_receipt.json": "ad3a8c0a95478790a8464c5634fac740c4845a2d1ae6c2f19da1fc4250ffed24"
+    },
+    "interpretation": "Reference-example recovery; no independent efficacy or official leaderboard improvement",
+    "official_score": null,
+    "only_added_task": "00d62c1b",
+    "paired_losses": 0,
+    "paired_ties": 99,
+    "paired_wins": 1,
+    "parent_solved": 4,
+    "preparer_access": "Held TRAIN outputs parsed/quarantined only after source/index/panel freeze; no fitter in preparer process",
+    "promotion": "HOLD_FOR_COMPETITION_USE",
+    "raw_file_access": "Opaque complete raw training files read for Git/SHA hashing; original test/query answers not parsed or used",
+    "scope": "Previously exposed training panel; demonstration0 LODO; no independent validation",
+    "tasks": 100,
+    "worker_boundary": "Fitting pairs and held TRAIN inputs only; actual staged input hashed; targets denied; both ordered predictions sealed",
+    "zero_losses": "Guaranteed by parent-prefix preservation and vacancy-only augmentation"
+  },
+  "illustration": "Deterministic SVG synthetic connectivity concept; not measured accuracy or model/data output",
+  "implementation": "independently authored; no upstream code or solved-task program imported/copied",
+  "new_code_author": "cubres",
+  "portable_verification": {
+    "current_checks": 4178,
+    "current_receipt": "VERIFICATION-v2.json",
+    "current_verifier_sha256": "939d5283c22a581d734e39deafe09f96815357ceb174125b46a7d038e7d0e669",
+    "prior_top_level_receipt_retained": "VERIFICATION.json",
+    "prior_verifier_and_receipts_retained": "historical/verifier-v1/",
+    "strengthening": "Require nonempty candidate list before unknown-query-color assertions; no fitting change"
+  },
+  "public_prefix": "tools/monochrome-cavities/2026-10-06/",
+  "public_wrapper_changes": [
+    "Strict grid/task/color/adjacency/finite-positive-budget guards",
+    "Returned candidate dictionaries detached from caller-owned JSON",
+    "Conservative cooperative CPU check after rendering/finalization; may raise TimeoutError where core overshoots",
+    "No change to program grammar, exact-fit/non-vacuity requirements, candidate colors or lexical ranking"
+  ],
+  "reference_frozen_bytes_preserved": true,
+  "reference_source_sha256": "a38fcff0f83d1f1fee9d91fdf12701f8bf53bf03fdf14e8e7c9f063b091e8d4f",
+  "remote_publication_performed": false,
+  "runtime_limits": "Cooperative process CPU only; no hard wall/memory/security sandbox",
+  "software_license": "MIT",
+  "unbundled_data": {
+    "commit": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+    "license": "Apache-2.0",
+    "path_scope": "data/training only",
+    "repository": "arcprize/ARC-AGI-2"
+  },
+  "verification_scope": "Synthetic contracts only; portable packaging does not rerun training experiment"
+}

@@ -1,0 +1,27 @@
+{
+  "checks": 4178,
+  "dataset_model_target_or_submission_files_read": false,
+  "exhaustive_component_oracles": 2048,
+  "exhaustive_recolor_oracles": 2048,
+  "forced_finalization_deadline_cases": 3,
+  "frozen_fit_compatibility_cases": 4,
+  "historical_v1_verifier_retained": true,
+  "optimized_mode": {
+    "refused_before_verification": true,
+    "returncode": 1
+  },
+  "process_cpu_seconds": 0.047959,
+  "python": "3.12.14",
+  "reference_sha256": "a38fcff0f83d1f1fee9d91fdf12701f8bf53bf03fdf14e8e7c9f063b091e8d4f",
+  "renderer": {
+    "exclusive_creation_passed": true,
+    "existing_output_refused": true,
+    "existing_output_sha_preserved": true,
+    "svg_sha256": "d0a0b240bd58f5f791be3a375d63c746cb080fbd548c018e0e632d42c39874b3"
+  },
+  "renderer_checked_with_unchanged_source_in_v1": true,
+  "source_sha256": "217291e8ad72aa1e4b07ac217cec21f766266c95963d9a5b3ae29bd4b461378b",
+  "status": "PASS_SYNTHETIC_CONTRACTS_ONLY",
+  "vector_sha256": "d0a0b240bd58f5f791be3a375d63c746cb080fbd548c018e0e632d42c39874b3",
+  "verifier_sha256": "939d5283c22a581d734e39deafe09f96815357ceb174125b46a7d038e7d0e669"
+}

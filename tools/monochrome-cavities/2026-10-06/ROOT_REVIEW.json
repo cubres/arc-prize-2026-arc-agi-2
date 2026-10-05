@@ -1,0 +1,34 @@
+{
+  "reviewed_utc": "2026-10-05T22:41:28.937719+00:00",
+  "status": "PASS_ORIGINAL_STANDALONE_TOOL_PUBLICATION_ONLY",
+  "original_manifest_sha256": "d128566b742308386989f826488f1b6a63655e52b114311a20c7601c30a89a7d",
+  "original_packet_file_count": 17,
+  "supplemental_root_review_not_part_of_original_manifest": true,
+  "root_independent_verification": {
+    "python": "3.9.6",
+    "checks": 4178,
+    "exhaustive_component_oracles": 2048,
+    "exhaustive_recolor_oracles": 2048,
+    "frozen_fit_compatibility_cases": 4,
+    "forced_finalization_deadline_cases": 3,
+    "process_cpu_seconds": 0.080095,
+    "status": "PASS_SYNTHETIC_CONTRACTS_ONLY"
+  },
+  "agent_verification": "V2 exact source same 4178 synthetic checks; optimized execution explicitly refused",
+  "visual_review": "Root inspected full1160x540 sharp raster: all captions readable; four-neighbour center fills4, eight-neighbour diagonal preserves0; clearly labeled synthetic",
+  "study_interpretation": "Exposed TRAIN demonstration LODO4/100 to5/100, sole improvement already-viewed Hodel reference example00d62c1b; zero losses guaranteed by vacancy-only augmentation. No independent efficacy or novelty claim.",
+  "target_boundary": "Opaque raw training files read for hashing; original query answers not parsed/used. Preparer parses held TRAIN targets only after freeze, fitter denied targets, evaluator checks recorded input binding and both prediction seals.",
+  "competition_promotion": "HOLD_FOR_COMPETITION_USE",
+  "native_execution_qualified": false,
+  "official_score": null,
+  "scope": "New additive generic tool prefix only; no serving adapter, notebook mutation, closed-workflow reactivation, or old documentation/ledger edits",
+  "source_pins": {
+    "monochrome_cavities.py": "217291e8ad72aa1e4b07ac217cec21f766266c95963d9a5b3ae29bd4b461378b",
+    "reference_cavity_programs.py": "a38fcff0f83d1f1fee9d91fdf12701f8bf53bf03fdf14e8e7c9f063b091e8d4f",
+    "verify_synthetic.py": "939d5283c22a581d734e39deafe09f96815357ceb174125b46a7d038e7d0e669",
+    "render_connectivity.py": "59be8d322648f3ebc13cd50f40ac83305124ac8d5b73338c023b5aedcb12a6dd",
+    "connectivity-synthetic.svg": "d0a0b240bd58f5f791be3a375d63c746cb080fbd548c018e0e632d42c39874b3"
+  },
+  "old_github_files_must_be_preserved": true,
+  "remote_publication_performed": false
+}

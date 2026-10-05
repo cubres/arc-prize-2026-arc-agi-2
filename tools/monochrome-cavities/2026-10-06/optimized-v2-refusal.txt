@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/Users/cubres/Documents/Neurogolf/research/codex_arc2_cavity_portable_20261005T222702Z/tools/monochrome-cavities/2026-10-06/verify_synthetic.py", line 157, in <module>
+    main()
+  File "/Users/cubres/Documents/Neurogolf/research/codex_arc2_cavity_portable_20261005T222702Z/tools/monochrome-cavities/2026-10-06/verify_synthetic.py", line 56, in main
+    raise RuntimeError("optimized-mode verifier is intentionally refused")
+RuntimeError: optimized-mode verifier is intentionally refused
