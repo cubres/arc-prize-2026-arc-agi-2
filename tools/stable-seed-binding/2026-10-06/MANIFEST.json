@@ -1,0 +1,42 @@
+{
+  "files": [
+    {
+      "path": "stable_seed_binding.py",
+      "sha256": "2de23b283a1f5897314d6207a00771598a4084ac8dada80461b0181d9dbd9a8e",
+      "size_bytes": 4054
+    },
+    {
+      "path": "verify_seed_binding.py",
+      "sha256": "0bdd03c8ef86010193d5e0551f916a4dc030430c10ac6d6911ca8413d1f8f9bb",
+      "size_bytes": 9213
+    },
+    {
+      "path": "render_seed_diagram.py",
+      "sha256": "4d57b3e74f93e0c77850a239b9fc50647f1cbabf27ec0c69cc622835812365b7",
+      "size_bytes": 5550
+    },
+    {
+      "path": "seed-binding.svg",
+      "sha256": "d24628e863ef5877dec782f32604042feb29631bd2156d91c21f4771cb680537",
+      "size_bytes": 5592
+    },
+    {
+      "path": "README.md",
+      "sha256": "4bfcbfcb38dfc38c1ccb416053d2d0cb84010918d132a6fb222ac28fa1d70296",
+      "size_bytes": 4026
+    },
+    {
+      "path": "PROVENANCE.json",
+      "sha256": "c3bdee7733a8f8bff0e1df9210a2230cc54f9538f6ba7104ef10ce9155dbc42e",
+      "size_bytes": 1397
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "eed854701ae3433dccb0da2fc34fb3a8b70460bb4cad7f9e1abb4145a6cdbf0e",
+      "size_bytes": 1063
+    }
+  ],
+  "generated_evidence_excluded": true,
+  "schema": "stable-seed-binding.source-manifest.v1",
+  "source_scope": "seven immutable artifact source and documentation files; excludes this manifest and later verification/visual review evidence"
+}

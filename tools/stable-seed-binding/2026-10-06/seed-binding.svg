@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="660" viewBox="0 0 1280 660">
+<title>Portable seed binding with a separate full identity digest</title>
+<desc>Actual seed values from the standalone tool. Worker and eight-view boxes are schematic; augmentation and model scoring are not implemented.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#128b87"/></marker></defs>
+<rect width="1280" height="660" fill="#f2f6f7"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#16333d}.title{font-size:31px;font-weight:700}.sub{font-size:16px;fill:#45636c}.label{font-size:14px;font-weight:700;fill:#128b87}.body{font-size:17px}.mono{font-family:monospace;font-size:14px}.small{font-size:13px;fill:#45636c}.seed{font-family:monospace;font-size:28px;font-weight:700}</style>
+<text x="48" y="53" class="title">One exact key. One portable seed.</text>
+<text x="48" y="83" class="sub">A domain-separated SHA-256 rule, with the full payload digest retained beside the 20-bit seed.</text>
+<rect x="48" y="110" width="350" height="135" rx="14" fill="white" stroke="#d5e2e5"/>
+<text x="68" y="140" class="label">EXACT PAYLOAD BYTES</text>
+<text x="68" y="169" class="mono">b"arc2-rescore-seed-v1\0"</text>
+<text x="68" y="194" class="mono">+ original_bk.encode("utf-8")</text>
+<text x="68" y="220" class="small">No trimming, normalization, worker ID or score.</text>
+<path d="M406 178 H440" stroke="#128b87" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="457" y="110" width="440" height="135" rx="14" fill="white" stroke="#d5e2e5"/>
+<text x="477" y="140" class="label">SHA-256 FULL PAYLOAD DIGEST</text>
+<text x="477" y="174" class="mono">f7562fb3c6616287887e464e5fa39d52</text>
+<text x="477" y="198" class="mono">9def296da513fb02343ac14983cca8df</text>
+<text x="477" y="225" class="small">Example key: 00d62c1b_0</text>
+<path d="M905 178 H940" stroke="#128b87" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="956" y="110" width="276" height="135" rx="14" fill="#e2f4ee" stroke="#95cfc0"/>
+<text x="976" y="140" class="label">BIG-ENDIAN INTEGER mod 2²⁰</text>
+<text x="976" y="187" class="seed">829663</text>
+<text x="976" y="222" class="small">Reduced seed is not a unique identity.</text>
+<text x="48" y="288" class="label">FRESH WORKERS / DIFFERENT PYTHON HASH SETTINGS</text>
+<rect x="48" y="310" width="235" height="47" rx="9" fill="white" stroke="#d5e2e5"/>
+<text x="65" y="339" class="body">Worker A · exact same key</text>
+<path d="M292 334 H335" stroke="#128b87" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="352" y="310" width="176" height="47" rx="9" fill="#e2f4ee" stroke="#95cfc0"/>
+<text x="377" y="340" class="mono">seed = 829663</text>
+<rect x="48" y="372" width="235" height="47" rx="9" fill="white" stroke="#d5e2e5"/>
+<text x="65" y="401" class="body">Worker B · exact same key</text>
+<path d="M292 396 H335" stroke="#128b87" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="352" y="372" width="176" height="47" rx="9" fill="#e2f4ee" stroke="#95cfc0"/>
+<text x="377" y="402" class="mono">seed = 829663</text>
+<rect x="48" y="434" width="235" height="47" rx="9" fill="white" stroke="#d5e2e5"/>
+<text x="65" y="463" class="body">Worker C · exact same key</text>
+<path d="M292 458 H335" stroke="#128b87" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="352" y="434" width="176" height="47" rx="9" fill="#e2f4ee" stroke="#95cfc0"/>
+<text x="377" y="464" class="mono">seed = 829663</text>
+<path d="M540 396 H592" stroke="#128b87" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="614" y="306" width="618" height="185" rx="14" fill="white" stroke="#d5e2e5" stroke-dasharray="7 5"/>
+<text x="636" y="336" class="label">EXTERNAL AUGMENTATION CONTRACT — NOT IMPLEMENTED HERE</text>
+<text x="636" y="364" class="body">Keep all eight ordered views, including duplicates.</text>
+<rect x="641" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="652" y="415" class="mono">v0</text>
+<rect x="712" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="723" y="415" class="mono">v1</text>
+<rect x="783" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="794" y="415" class="mono">v2</text>
+<rect x="854" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="865" y="415" class="mono">v3</text>
+<rect x="925" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="936" y="415" class="mono">v4</text>
+<rect x="996" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="1007" y="415" class="mono">v5</text>
+<rect x="1067" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="1078" y="415" class="mono">v6</text>
+<rect x="1138" y="384" width="58" height="52" rx="7" fill="#eef4f6" stroke="#d5e2e5"/>
+<text x="1149" y="415" class="mono">v7</text>
+<text x="657" y="463" class="small">First four scoring views</text>
+<text x="948" y="463" class="small">Second four scoring views</text>
+<rect x="48" y="524" width="1184" height="77" rx="12" fill="#fff4df" stroke="#e9d6ae"/>
+<text x="67" y="551" class="label">COLLISION WITNESS: A REDUCED SEED MUST NOT KEY AN IDENTITY LEDGER</text>
+<text x="67" y="580" class="mono">collision-probe-681_0 and collision-probe-1298_0 → 477269; different full payload digests.</text>
+<text x="48" y="637" class="small">Schematic only. No native ARC2 execution, model scoring, speed measurement, answer-quality or generalization claim.</text>
+</svg>

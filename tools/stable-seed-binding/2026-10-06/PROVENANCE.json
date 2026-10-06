@@ -1,0 +1,27 @@
+{
+  "schema": "stable-seed-binding.provenance.v1",
+  "implementation": "original independently written standard-library code",
+  "license": "MIT",
+  "rule": "SHA256(b'arc2-rescore-seed-v1\\0' + exact_original_bk_UTF8), unsigned big-endian integer modulo 2**20",
+  "reference": {
+    "url": "https://www.kaggle.com/code/rokaiyasomapti/reproduce-nvarc-2025-results",
+    "observed_version": 2,
+    "source_sha256": "7fd06eabf9535fd45f0a90b7fe14bad5c3fab10c5619112b7e581fc27b15d44d",
+    "checked_utc": "2026-10-06T12:50:16.295567+00:00",
+    "page_declared_license": "Apache 2.0",
+    "role": "research context for legacy Python hash(bk) scoring seed",
+    "implementation_code_copied": false
+  },
+  "credit": ["Ivan Sorokin and Jean-Francois Puget (NVARC)", "ARChitects", "Koushik Rudra", "RS / rokaiyasomapti"],
+  "source_identity_scope": "on-disk implementation bytes; not loaded-code or model attestation",
+  "payload_identity_scope": "fixed domain and exact original_bk only",
+  "reduced_seed_unique_identity": false,
+  "external_obligations_not_implemented": ["eight-view order and duplicates", "candidate scoring and EOS handling", "ranking and tie order", "runtime and NumPy pinning"],
+  "claim_limits": {
+    "native_arc2_execution": false,
+    "native_speed_claim": null,
+    "answer_quality_claim": null,
+    "generalization_claim": null,
+    "notebook_or_model_integration": false
+  }
+}
