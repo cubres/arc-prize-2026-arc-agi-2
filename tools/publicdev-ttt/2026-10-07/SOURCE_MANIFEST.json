@@ -1,0 +1,63 @@
+{
+  "files": [
+    {
+      "bytes": 11357,
+      "path": "LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "bytes": 1139,
+      "path": "NOTICE",
+      "sha256": "e6bd46cd02d6be17d86ba97a4aee1988313fdd62c4e0798e1ea1d84c57a09f44"
+    },
+    {
+      "bytes": 6295,
+      "path": "README.md",
+      "sha256": "1b0ebda092e7d6772e15498551bc32716b4ff17683c1c69fd152d30e71ba4cae"
+    },
+    {
+      "bytes": 1945,
+      "path": "adapter_interface.py",
+      "sha256": "80c16f5da47f13e9a010ac9e45424efb080db5749e40c40711bd3a2c18c90569"
+    },
+    {
+      "bytes": 3850,
+      "path": "evaluate_frozen_predictions.py",
+      "sha256": "b3363ee8d4fcb22edfc1b9e7a7fb501ffc9fcf4989dafa06ec80afd6ae7b254f"
+    },
+    {
+      "bytes": 3616,
+      "path": "grid_tokens.py",
+      "sha256": "06ec8338e831cab9108dce6c8b365f451bce889e44c64993ec712279103f41e0"
+    },
+    {
+      "bytes": 14665,
+      "path": "prediction_contract.py",
+      "sha256": "8639eca616c488ba882caa9f1dff2a96b655de0bb048bab40b2547d5aa38843b"
+    },
+    {
+      "bytes": 5392,
+      "path": "run_experiment.py",
+      "sha256": "20815bfe3b0b5f788d71feb4890256e6aadb54f61df1e7805f954d58ab348b90"
+    },
+    {
+      "bytes": 2577,
+      "path": "run_synthetic_demo.py",
+      "sha256": "d9900da73b919ed2653304f33d780e155697d57f8f609e5a2fad3f50cd61c1ef"
+    },
+    {
+      "bytes": 1818,
+      "path": "synthetic_adapter.py",
+      "sha256": "a482c3a8a9e7f652b833c24a47e0c575f437f8f9c4ecde38a3c7bebaf9d273db"
+    },
+    {
+      "bytes": 4225,
+      "path": "verify_source_and_demo.py",
+      "sha256": "c54dabcb86d402490ca66467635f4815a6124a55c6b68d98ef605195f26559bf"
+    }
+  ],
+  "generated_outputs_excluded": true,
+  "license": "Apache-2.0",
+  "schema": "arc2-publicdev-ttt-source-manifest-v1",
+  "source_only": true
+}

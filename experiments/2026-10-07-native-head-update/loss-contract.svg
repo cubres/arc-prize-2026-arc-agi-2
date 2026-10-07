@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img">
+<title>A real update can precede a failed cleanup check</title>
+<desc>Actual training-phase evidence remains strict; cleanup is recorded after training ends.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#687c90"/></marker></defs>
+<rect width="1200" height="530" fill="#f7fafc"/>
+<style>text{font-family:Arial,sans-serif;fill:#182e42}.title{font-size:29px;font-weight:700}.sub{font-size:17px;fill:#496177}.label{font-size:19px;font-weight:700}.detail{font-size:16px}.note{font-size:16px;fill:#415d73}</style>
+<text x="44" y="55" class="title">A real update can precede a failed cleanup check</text>
+<text x="44" y="86" class="sub">Actual training-phase evidence remains strict; cleanup is recorded after training ends.</text>
+<rect x="44" y="122" width="337" height="104" rx="12" fill="#e3edf8" stroke="#c7d7e3"/>
+<text x="62" y="153" class="label">Actual loss entry</text>
+<text x="62" y="181" class="detail">Pinned mode reset may write 0</text>
+<text x="62" y="204" class="detail">Reassert required flag 1 here</text>
+<path d="M385 173 L411 173" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="419" y="122" width="337" height="104" rx="12" fill="#e5f3ed" stroke="#c7d7e3"/>
+<text x="437" y="153" class="label">Loss and backward</text>
+<text x="437" y="181" class="detail">Finite loss and 422 shifted tokens</text>
+<text x="437" y="204" class="detail">Nonzero head-B gradient</text>
+<path d="M760 173 L786 173" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="794" y="122" width="337" height="104" rx="12" fill="#e5f3ed" stroke="#c7d7e3"/>
+<text x="812" y="153" class="label">Actual AdamW step</text>
+<text x="812" y="181" class="detail">Unique real head membership</text>
+<text x="812" y="204" class="detail">Positive first-coordinate change</text>
+<rect x="44" y="259" width="337" height="104" rx="12" fill="#e5f3ed" stroke="#c7d7e3"/>
+<text x="62" y="290" class="label">Training step end</text>
+<text x="62" y="318" class="detail">Flag 1 mandatory here</text>
+<text x="62" y="341" class="detail">Exact optimizer/callback counts</text>
+<path d="M385 310 L411 310" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="419" y="259" width="337" height="104" rx="12" fill="#fff2d9" stroke="#c7d7e3"/>
+<text x="437" y="290" class="label">Wrapper cleanup</text>
+<text x="437" y="318" class="detail">Pinned context selects mode</text>
+<text x="437" y="341" class="detail">Known 0 or 1 is observed</text>
+<path d="M760 310 L786 310" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="794" y="259" width="337" height="104" rx="12" fill="#eee8f8" stroke="#c7d7e3"/>
+<text x="812" y="290" class="label">Quality measurement</text>
+<text x="812" y="318" class="detail">Independent before/after decoding</text>
+<text x="812" y="341" class="detail">Required before any gain claim</text>
+<text x="44" y="435" class="note">V9 measured loss 0.07967, head-B gradient norm 0.3817 and positive coordinate delta 4.98e-05.</text>
+<text x="44" y="461" class="note">V9 still ended ERROR on cleanup. A finite training step is not a puzzle solve or leaderboard gain.</text>
+</svg>

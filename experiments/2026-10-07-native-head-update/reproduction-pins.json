@@ -1,0 +1,76 @@
+{
+  "accelerator": "NVIDIA L4",
+  "accepted_32_step_canonical_source_sha256": "3230b723786f09d10c603409ed58e1a72497ea6b3b169084fe8b5af0b02ddf1d",
+  "accepted_32_step_cell_pairs_identical": true,
+  "canonical_tokenizer_files": {
+    "added_tokens.json": {
+      "sha256": "cf1224e6a594b51a34b8b9ca6c6dce3026683777521f361e37526b8a33258bce",
+      "size": 68
+    },
+    "special_tokens_map.json": {
+      "sha256": "f4f79e08d97f4d1c87f8d89264f525c8789da3b73b3bb55d1e12f692f41a7b1b",
+      "size": 367
+    },
+    "tokenizer.json": {
+      "sha256": "af6b9e855f9db3192bd9152607708ebd7700b40f9fc5f792a26af70150a96cd5",
+      "size": 1731
+    },
+    "tokenizer_config.json": {
+      "sha256": "e1912aeba4050616cbfe01b34df3f3df2818207eda0056f6eb87c2336936ea90",
+      "size": 988
+    },
+    "vocab.json": {
+      "sha256": "8141a61e47eceec466524bc178bc9c6d5076b7d1b18b456fbd3fdf66cae57f82",
+      "size": 94
+    }
+  },
+  "challenge_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+  "checkpoint_identity_scope": "Kaggle model version1 plus actual model config binding; not whole parameter hash",
+  "competition": "arc-prize-2026-arc-agi-2",
+  "competition_submission_created": false,
+  "container_digest": "37c64f7dd9c54116ecd1bcc88817c5469b88387388fade02bfa8bf3fc647d461",
+  "dependency_sources_linked_only": true,
+  "external_checkpoint_publicdev_exposure": "UNKNOWN",
+  "flash_attention_attachment": "konstantinboyko/whl-flash-attn-2-8-3",
+  "method_settings": {
+    "attempt_transforms": [
+      "identity",
+      "transpose"
+    ],
+    "augment_seed": 1,
+    "decode_policy": "greedy",
+    "decode_seed": 42,
+    "eos_id": 15,
+    "learning_rate": 5e-05,
+    "lora_alpha": 32,
+    "lora_rank": 256,
+    "max_new_tokens": 930,
+    "optimizer": "AdamW",
+    "original_full_recipe_warmup_ratio": 0.1,
+    "pad_id": 13,
+    "requested_adaptation_steps": 32,
+    "scheduler": "cosine",
+    "train_seed": 42,
+    "train_views": 128,
+    "warmup_ratio": 0.0
+  },
+  "model_reference": "sorokin/qwen3_4b_grids15_sft139/Transformers/bfloat16/1",
+  "model_weight_hash_included": false,
+  "native_scientific_source_redistributed": false,
+  "native_v9_canonical_source_sha256": "f50700709ec6abe44f24d48be5714e462cba6852c2c11596a5012b047f8ec588",
+  "prepared_scientific_candidate_sha256": "68278ef3a2042f3033deaabe57e760755fa78d3c4a2ae086173d47aaae7694f4",
+  "public_task_id": "3dc255db",
+  "runtime_limits": {
+    "bootstrap_owned_supervision": false,
+    "conservative_gpu_factor": 2,
+    "deadlines_measured_from_original_start": true,
+    "postbootstrap_absolute_parent_seconds": 1750,
+    "science_absolute_seconds": 1680,
+    "server_cap_seconds": 1800
+  },
+  "schema": "arc2-public-reproduction-pins-v1",
+  "scope": "One previously exposed public-development case, not a benchmark",
+  "test_index": 0,
+  "unsloth_setup_reference": "konstantinboyko/unsloth-2026-7-2-torch-2-10-0-cu128-patched",
+  "visible_physical_gpu": 0
+}

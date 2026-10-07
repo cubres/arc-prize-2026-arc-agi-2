@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="530" viewBox="0 0 1200 530" role="img">
+<title>Freeze predictions before evaluating adaptation</title>
+<desc>One fixed public-development case; both stages use the same attempts and seeds.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#687c90"/></marker></defs>
+<rect width="1200" height="530" fill="#f7fafc"/>
+<style>text{font-family:Arial,sans-serif;fill:#182e42}.title{font-size:29px;font-weight:700}.sub{font-size:17px;fill:#496177}.label{font-size:19px;font-weight:700}.detail{font-size:16px}.note{font-size:16px;fill:#415d73}</style>
+<text x="44" y="55" class="title">Freeze predictions before evaluating adaptation</text>
+<text x="44" y="86" class="sub">One fixed public-development case; both stages use the same attempts and seeds.</text>
+<rect x="44" y="122" width="337" height="104" rx="12" fill="#e3edf8" stroke="#c7d7e3"/>
+<text x="62" y="153" class="label">1. Initialize and bind</text>
+<text x="62" y="181" class="detail">Checkpoint, tokenizer, head A/B</text>
+<text x="62" y="204" class="detail">Actual optimizer and 128 rows</text>
+<path d="M385 173 L411 173" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="419" y="122" width="337" height="104" rx="12" fill="#e5f3ed" stroke="#c7d7e3"/>
+<text x="437" y="153" class="label">2. Baseline decode</text>
+<text x="437" y="181" class="detail">Greedy identity + transpose</text>
+<text x="437" y="204" class="detail">Entire suffix; no repair</text>
+<path d="M760 173 L786 173" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="794" y="122" width="337" height="104" rx="12" fill="#fff2d9" stroke="#c7d7e3"/>
+<text x="812" y="153" class="label">3. Adapt 32 steps</text>
+<text x="812" y="181" class="detail">Strict positive first update</text>
+<text x="812" y="204" class="detail">Later finite zero deltas allowed</text>
+<rect x="44" y="259" width="337" height="104" rx="12" fill="#e5f3ed" stroke="#c7d7e3"/>
+<text x="62" y="290" class="label">4. Adapted decode</text>
+<text x="62" y="318" class="detail">Same prompts, seeds and views</text>
+<text x="62" y="341" class="detail">Store all four full attempts</text>
+<path d="M385 310 L411 310" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="419" y="259" width="337" height="104" rx="12" fill="#e3edf8" stroke="#c7d7e3"/>
+<text x="437" y="290" class="label">5. Freeze and exit</text>
+<text x="437" y="318" class="detail">Protocol + artifacts + source pins</text>
+<text x="437" y="341" class="detail">Verify scientific worker completion</text>
+<path d="M760 310 L786 310" fill="none" stroke="#687c90" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="794" y="259" width="337" height="104" rx="12" fill="#eee8f8" stroke="#c7d7e3"/>
+<text x="812" y="290" class="label">6. Separate evaluation</text>
+<text x="812" y="318" class="detail">Only now read public solutions</text>
+<text x="812" y="341" class="detail">Parse validity + exact match</text>
+<text x="44" y="435" class="note">Schematic only. Native 32-step solve quality is PENDING.</text>
+<text x="44" y="461" class="note">Public-task exposure is disclosed; one case cannot establish generalization or an official score.</text>
+</svg>

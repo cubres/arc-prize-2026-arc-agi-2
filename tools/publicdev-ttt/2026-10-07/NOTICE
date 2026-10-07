@@ -1,0 +1,19 @@
+ARC2 public-development experiment tooling
+Copyright 2026 cubres
+
+Original Apache-2.0 source: strict grid-token parsing, source-pinned procedural
+prediction freeze, separate evaluation, engine interface, experiment runner,
+synthetic adapter/demo, source verifier, documentation and schematic diagrams.
+
+The grid_tokens.py, prediction_contract.py and evaluate_frozen_predictions.py
+files are retained byte-exact from our independently reviewed original study
+helpers. The public runner and synthetic adapter are new additions and are
+distinct from the unbundled private neural scientific driver.
+
+Neural method provenance: Sorokin's Qwen3 grid checkpoint, the NVARC/Qwen
+authors, Konstantin Boyko's Unsloth/Torch CUDA setup and Flash Attention
+attachments, and the credited koushikrudra/failed-in-aimo notebook lineage.
+Their source implementations, wheels, datasets, model weights, solution files
+and licenses are not redistributed by this package. Links and exact identifiers
+appear in the experiment note and reproduction pins. This notice does not grant
+rights to those unbundled materials or claim original authorship of their method.
