@@ -1,0 +1,50 @@
+{
+  "actual_adaptation_steps": 32,
+  "competition_submission": false,
+  "decodes": [
+    {
+      "attempt": 1,
+      "elapsed_seconds": 15.01603866000005,
+      "ended_in_eos": true,
+      "generated_tokens": 168,
+      "input_tokens": 1036,
+      "stage": "before",
+      "transform": "identity"
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 10.896129954000003,
+      "ended_in_eos": true,
+      "generated_tokens": 169,
+      "input_tokens": 1037,
+      "stage": "before",
+      "transform": "transpose"
+    },
+    {
+      "attempt": 1,
+      "elapsed_seconds": 10.83475703900001,
+      "ended_in_eos": true,
+      "generated_tokens": 168,
+      "input_tokens": 1036,
+      "stage": "after",
+      "transform": "identity"
+    },
+    {
+      "attempt": 2,
+      "elapsed_seconds": 10.871043982000003,
+      "ended_in_eos": true,
+      "generated_tokens": 169,
+      "input_tokens": 1037,
+      "stage": "after",
+      "transform": "transpose"
+    }
+  ],
+  "external_checkpoint_publicdev_exposure": "UNKNOWN",
+  "held_solutions_opened": false,
+  "manifest_sha256": "dc4705702923ad58a2aef2d2fdd9f89cda10edfdecb14719a54eb8596eb8ec33",
+  "prior_public_training_pair_exposure": true,
+  "protocol_sha256": "30b9ce368ca697893a3489c3a5ff446f170d8d522bc787fddd1c186e08c0712f",
+  "schema": "arc2-sanitized-science-completion-v1",
+  "source_receipt_sha256": "e95003db7561294c4ba1c1412c1e385852e4033524296af974c9152a45efba68",
+  "status": "PASS_SCIENCE_FROZEN_BEFORE_EVALUATION"
+}

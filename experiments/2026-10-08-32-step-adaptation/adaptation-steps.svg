@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img">
+<title>32 adaptation steps on one public-development task</title>
+<desc>Left: training loss per step (linear). Right: size of the output-head adapter update per step (log scale).</desc>
+<style>.bg{fill:#fcfcfb}.t{font-family:Arial,sans-serif;fill:#0b0b0b}.s{font-family:Arial,sans-serif;fill:#52514e;font-size:15px}.grid{stroke:#e4e3df;stroke-width:1}.axis{stroke:#9b9a95;stroke-width:1}.line{fill:none;stroke:#2a78d6;stroke-width:2}.dot{fill:#2a78d6}@media (prefers-color-scheme: dark){.bg{fill:#1a1a19}.t{fill:#ffffff}.s{fill:#c3c2b7}.grid{stroke:#3a3a38}.axis{stroke:#6f6e69}.line{stroke:#3987e5}.dot{fill:#3987e5}}</style>
+<rect class="bg" width="1200" height="470"/>
+<text x="40" y="44" class="t" font-size="26" font-weight="700">What 32 adaptation steps did on one task</text>
+<text x="40" y="72" class="s">One previously exposed public-development task (3dc255db). Each step trains on a different augmented view of its demonstrations.</text>
+<text x="90" y="94" class="t" font-size="18" font-weight="700">Training loss per step</text>
+<line class="grid" x1="90" x2="560" y1="390.0" y2="390.0"/><text x="80" y="395.0" class="s" text-anchor="end">0.00</text>
+<line class="grid" x1="90" x2="560" y1="296.7" y2="296.7"/><text x="80" y="301.7" class="s" text-anchor="end">0.03</text>
+<line class="grid" x1="90" x2="560" y1="203.3" y2="203.3"/><text x="80" y="208.3" class="s" text-anchor="end">0.06</text>
+<line class="grid" x1="90" x2="560" y1="110.0" y2="110.0"/><text x="80" y="115.0" class="s" text-anchor="end">0.09</text>
+<line class="axis" x1="90" x2="560" y1="390" y2="390"/>
+<text x="90.0" y="414" class="s" text-anchor="middle">1</text>
+<text x="196.1" y="414" class="s" text-anchor="middle">8</text>
+<text x="317.4" y="414" class="s" text-anchor="middle">16</text>
+<text x="438.7" y="414" class="s" text-anchor="middle">24</text>
+<text x="560.0" y="414" class="s" text-anchor="middle">32</text>
+<text x="325" y="438" class="s" text-anchor="middle">optimizer step</text>
+<polyline class="line" points="90.0,142.1 105.2,129.9 120.3,152.4 135.5,248.5 150.6,303.5 165.8,279.1 181.0,278.4 196.1,334.9 211.3,308.6 226.5,229.2 241.6,325.0 256.8,302.9 271.9,330.9 287.1,362.3 302.3,324.5 317.4,364.3 332.6,361.4 347.7,326.9 362.9,367.3 378.1,367.0 393.2,348.4 408.4,365.2 423.5,374.8 438.7,358.6 453.9,379.8 469.0,375.3 484.2,369.1 499.4,373.7 514.5,374.9 529.7,374.6 544.8,377.2 560.0,384.8"/>
+<circle class="dot" cx="90.0" cy="142.1" r="4.5"/>
+<text x="104.0" y="164.1" class="s" text-anchor="start">step 1: 0.0797</text>
+<circle class="dot" cx="560.0" cy="384.8" r="4.5"/>
+<text x="554.0" y="354.8" class="s" text-anchor="end">step 32: 0.0017</text>
+<text x="690" y="94" class="t" font-size="18" font-weight="700">Head-B adapter update size per step (log scale)</text>
+<line class="grid" x1="690" x2="1160" y1="390.0" y2="390.0"/><text x="680" y="395.0" class="s" text-anchor="end">1e-7</text>
+<line class="grid" x1="690" x2="1160" y1="278.0" y2="278.0"/><text x="680" y="283.0" class="s" text-anchor="end">1e-5</text>
+<line class="grid" x1="690" x2="1160" y1="166.0" y2="166.0"/><text x="680" y="171.0" class="s" text-anchor="end">1e-3</text>
+<line class="axis" x1="690" x2="1160" y1="390" y2="390"/>
+<text x="690.0" y="414" class="s" text-anchor="middle">1</text>
+<text x="796.1" y="414" class="s" text-anchor="middle">8</text>
+<text x="917.4" y="414" class="s" text-anchor="middle">16</text>
+<text x="1038.7" y="414" class="s" text-anchor="middle">24</text>
+<text x="1160.0" y="414" class="s" text-anchor="middle">32</text>
+<text x="925" y="438" class="s" text-anchor="middle">optimizer step</text>
+<polyline class="line" points="690.0,141.2 705.2,146.3 720.3,152.2 735.5,159.2 750.6,161.7 765.8,161.7 781.0,163.7 796.1,168.0 811.3,170.1 826.5,172.9 841.6,176.0 856.8,180.6 871.9,180.4 887.1,183.3 902.3,188.6 917.4,190.7 932.6,194.2 947.7,199.7 962.9,201.9 978.1,206.6 993.2,208.8 1008.4,214.4 1023.5,220.1 1038.7,222.5 1053.9,229.3 1069.0,235.7 1084.2,242.0 1099.4,253.5 1114.5,266.8 1129.7,284.3 1144.8,316.4 1160.0,369.0"/>
+<circle class="dot" cx="690.0" cy="141.2" r="4.5"/>
+<text x="702.0" y="129.2" class="s" text-anchor="start">step 1: 2.8e-03</text>
+<circle class="dot" cx="1160.0" cy="369.0" r="4.5"/>
+<text x="1144.0" y="374.0" class="s" text-anchor="end">step 32: 2.4e-07</text>
+<text x="40" y="456" class="s">Update size tracks the cosine learning rate (no warmup) toward zero; at step 32 only 76 of 4,096 bf16 head-B values still change.</text>
+</svg>

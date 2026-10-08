@@ -1,0 +1,44 @@
+{
+  "after_any_exact": false,
+  "attempts": [
+    {
+      "attempt": 1,
+      "exact_match": false,
+      "stage": "before",
+      "transform": "identity",
+      "valid_grid": true
+    },
+    {
+      "attempt": 2,
+      "exact_match": false,
+      "stage": "before",
+      "transform": "transpose",
+      "valid_grid": true
+    },
+    {
+      "attempt": 1,
+      "exact_match": false,
+      "stage": "after",
+      "transform": "identity",
+      "valid_grid": true
+    },
+    {
+      "attempt": 2,
+      "exact_match": false,
+      "stage": "after",
+      "transform": "transpose",
+      "valid_grid": true
+    }
+  ],
+  "before_any_exact": false,
+  "ground_truth_included": false,
+  "prediction_freeze_verified_before_solutions_read": true,
+  "prediction_grids_included": false,
+  "prediction_manifest_sha256": "dc4705702923ad58a2aef2d2fdd9f89cda10edfdecb14719a54eb8596eb8ec33",
+  "protocol_sha256": "30b9ce368ca697893a3489c3a5ff446f170d8d522bc787fddd1c186e08c0712f",
+  "schema": "arc2-sanitized-publicdev-evaluation-v1",
+  "scope": "One preregistered public development query; no benchmark or hidden evaluation inference",
+  "source_receipt_sha256": "224d7428ca7e380e2482768888f85fba3034a1390cd81d24654d1e119b6d320a",
+  "task_id": "3dc255db",
+  "test_index": 0
+}
