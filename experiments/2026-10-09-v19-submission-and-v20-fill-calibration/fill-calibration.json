@@ -1,0 +1,250 @@
+{
+ "expected_gain": {
+  "hidden_240_capacity_bound_estimate": {
+   "0.01": {
+    "P_at_least_one_fill": 0.165,
+    "expected_points": 0.108,
+    "outputs": 18
+   },
+   "0.03": {
+    "P_at_least_one_fill": 0.422,
+    "expected_points": 0.324,
+    "outputs": 18
+   },
+   "0.045": {
+    "P_at_least_one_fill": 0.563,
+    "expected_points": 0.486,
+    "outputs": 18
+   },
+   "0.1": {
+    "P_at_least_one_fill": 0.85,
+    "expected_points": 1.08,
+    "outputs": 18
+   }
+  },
+  "hidden_estimate_basis": "2 x public weak-unsolved outputs (strategist: 240 hidden tasks), of which about 15 of 36 triggered tasks fit the deep budget (L3 raw check: mean 15.5 deep tasks per run at margin 1500 s)",
+  "public_120_all_triggered": {
+   "0.01": {
+    "P_at_least_one_fill": 0.19,
+    "expected_points": 0.125,
+    "outputs": 21
+   },
+   "0.03": {
+    "P_at_least_one_fill": 0.473,
+    "expected_points": 0.375,
+    "outputs": 21
+   },
+   "0.045": {
+    "P_at_least_one_fill": 0.62,
+    "expected_points": 0.562,
+    "outputs": 21
+   },
+   "0.1": {
+    "P_at_least_one_fill": 0.891,
+    "expected_points": 1.25,
+    "outputs": 21
+   }
+  }
+ },
+ "p_fill_prior": {
+  "alpha": 1.2,
+  "anchor": "second-slot hit rate in the public run 0.045 (Wilson 95% [0.019, 0.101]); a deep pass re-runs the same recipe on weak outputs whose main pool has one candidate, so the prior is set below the anchor",
+  "beta": 38.8,
+  "evidence_update": "none: the V13 weak-unsolved outputs have no deep-pass measurement",
+  "family": "Beta",
+  "mean": 0.03,
+  "q05": 0.0024,
+  "q95": 0.0831,
+  "strength_pseudo_outputs": 40.0
+ },
+ "public_run": {
+  "P_solved_given_strong": 0.2789,
+  "P_solved_given_weak": 0.16,
+  "attempt_1_correct": 40,
+  "attempt_2_correct": 5,
+  "fisher_two_sided_p_weak_vs_strong": 0.3241,
+  "multi_output_tasks": 49,
+  "note": "The public run has no pool files, so the top-1 support feature cannot be checked against it; only the weak proxy (attempt_2 placeholder) can.",
+  "outputs": 172,
+  "second_slot": {
+   "attempt_1_wrong_with_second_candidate": 111,
+   "attempt_2_correct": 5,
+   "rate": 0.045,
+   "wilson95": [
+    0.0194,
+    0.1011
+   ]
+  },
+  "solved_outputs": 45,
+  "tasks": 120,
+  "weak_outputs": 25,
+  "weak_share": 0.1453,
+  "weak_solved": 4,
+  "weak_unsolved": 21,
+  "weak_unsolved_credit": 12.5,
+  "weak_unsolved_single_output_tasks": 4,
+  "weak_unsolved_tasks": 18
+ },
+ "schema": "arc2-v20-fill-calibration-v1",
+ "v13": {
+  "files_skipped": 0,
+  "outputs": [
+   {
+    "distinct_main": 3,
+    "output": "221dfab4_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 8,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 9,
+    "output": "221dfab4_1",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 7,
+    "output": "247ef758_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 2,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 8,
+    "output": "247ef758_1",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 1,
+    "output": "45a5af55_0",
+    "solved": true,
+    "top1_is_truth": true,
+    "top1_support_views": 16,
+    "truth_in_pool": true,
+    "weak": true
+   },
+   {
+    "distinct_main": 1,
+    "output": "581f7754_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": true
+   },
+   {
+    "distinct_main": 5,
+    "output": "581f7754_1",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 1,
+    "output": "a32d8b75_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": true
+   },
+   {
+    "distinct_main": 2,
+    "output": "a32d8b75_1",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 2,
+    "output": "b10624e5_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 10,
+    "output": "c7f57c3e_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 3,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 3,
+    "output": "cb2d8a2c_0",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 1,
+    "truth_in_pool": false,
+    "weak": false
+   },
+   {
+    "distinct_main": 0,
+    "output": "cb2d8a2c_1",
+    "solved": false,
+    "top1_is_truth": false,
+    "top1_support_views": 0,
+    "truth_in_pool": false,
+    "weak": true
+   }
+  ],
+  "pool_files": 79,
+  "solved_strong": 0,
+  "solved_weak_top1_support": [
+   16
+  ],
+  "threshold_sweep": {
+   "1": {
+    "fired": 3,
+    "fired_solved": 0,
+    "fired_unsolved": 3
+   },
+   "15": {
+    "fired": 3,
+    "fired_solved": 0,
+    "fired_unsolved": 3
+   },
+   "2": {
+    "fired": 3,
+    "fired_solved": 0,
+    "fired_unsolved": 3
+   },
+   "4": {
+    "fired": 3,
+    "fired_solved": 0,
+    "fired_unsolved": 3
+   },
+   "8": {
+    "fired": 3,
+    "fired_solved": 0,
+    "fired_unsolved": 3
+   }
+  },
+  "weak_outputs": 4,
+  "weak_unsolved_top1_support": [
+   1,
+   1,
+   0
+  ]
+ },
+ "views_per_output": 16
+}
