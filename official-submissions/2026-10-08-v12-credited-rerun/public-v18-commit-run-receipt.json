@@ -1,0 +1,28 @@
+{
+ "schema": "arc2-v12-control-rerun-v1",
+ "competition_limit_seconds": 43200,
+ "coverage": {
+  "filled_default_attempts": 0,
+  "kept_valid_attempts": 344,
+  "non_default_attempts": 9
+ },
+ "deadlines_seconds": {
+  "solver_hard_kill": 2700,
+  "solver_soft_end": 2400,
+  "submission_build_end": 2880
+ },
+ "decoded_subkeys": 74,
+ "exported": true,
+ "final_problems": [],
+ "finished_after_seconds": 1633.686387168,
+ "rerun": false,
+ "solver": {
+  "status": "PASS_OWNED_COMMAND",
+  "command_returncode": 0,
+  "elapsed_seconds": 1548.703892001,
+  "timed_out": false,
+  "leader_reaped": true,
+  "cleanup_on_success": true
+ },
+ "notebook": "prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab version 18 (public), session 356401632"
+}
