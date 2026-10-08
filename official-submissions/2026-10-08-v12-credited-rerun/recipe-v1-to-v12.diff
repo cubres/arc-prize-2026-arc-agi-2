@@ -1,0 +1,133 @@
+--- koushik_V1/v12-recipe-uninstall
++++ v12/v12-recipe-uninstall
+@@ -1 +1,7 @@
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: this header only.
++# ----------------------------------------------------------------------------------------------
+ !pip uninstall -y tensorflow
+--- koushik_V1/v12-recipe-arc-loader
++++ v12/v12-recipe-arc-loader
+@@ -1,4 +1,10 @@
+ %%writefile arc_loader.py
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: this header only.
++# ----------------------------------------------------------------------------------------------
+ import json
+ import numpy as np
+ from transformers import AutoTokenizer
+--- koushik_V1/v12-recipe-arc-decoder
++++ v12/v12-recipe-arc-decoder
+@@ -1,4 +1,10 @@
+ %%writefile arc_decoder.py
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: this header only.
++# ----------------------------------------------------------------------------------------------
+ import os
+ import bz2
+ import pickle
+--- koushik_V1/v12-recipe-arc-solver
++++ v12/v12-recipe-arc-solver
+@@ -1,4 +1,10 @@
+ %%writefile arc_solver.py
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: model and data paths read V12_MODEL_PATH / V12_DATA_ROOT, defaulting to the original literals.
++# ----------------------------------------------------------------------------------------------
+ from unsloth import FastLanguageModel, UnslothTrainingArguments, UnslothTrainer
+ from arc_loader import ArcDataset, QwenFormatter
+ 
+@@ -263,7 +269,7 @@
+     max_seq_length = 8192
+ 
+     model, tokenizer = FastLanguageModel.from_pretrained(
+-        model_name="/kaggle/input/qwen3_4b_grids15_sft139/transformers/bfloat16/1",
++        model_name=os.environ.get("V12_MODEL_PATH", "/kaggle/input/qwen3_4b_grids15_sft139/transformers/bfloat16/1"),
+         full_finetuning=False,
+         load_in_4bit=False,
+         local_files_only=True,
+@@ -292,9 +298,9 @@
+     max_score = -np.log(0.2)
+ 
+     if rerun_mode:
+-        test_path = "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json"
++        test_path = os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_test_challenges.json")
+     else:
+-        test_path = "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json"
++        test_path = os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_evaluation_challenges.json")
+ 
+     arc_test_set = ArcDataset.from_file(test_path)
+ 
+--- koushik_V1/v12-recipe-starter
++++ v12/v12-recipe-starter
+@@ -1,4 +1,10 @@
+ %%writefile starter.py
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: data path reads V12_DATA_ROOT, defaulting to the original literal.
++# ----------------------------------------------------------------------------------------------
+ import os
+ import time
+ import json
+@@ -39,9 +45,9 @@
+     rerun_mode = os.getenv("KAGGLE_IS_COMPETITION_RERUN")
+ 
+     if rerun_mode:
+-        test_path = "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json"
++        test_path = os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_test_challenges.json")
+     else:
+-        test_path = "/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json"
++        test_path = os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_evaluation_challenges.json")
+ 
+     with open(test_path, "r") as f:
+         data = json.load(f)
+--- koushik_V1/v12-recipe-make-submission
++++ v12/v12-recipe-make-submission
+@@ -1,3 +1,10 @@
++%%writefile make_submission.py
++# ----------------------------------------------------------------------------------------------
++# From "Failed in AIMO" by Koushik Rudra: Kaggle notebook koushikrudra/failed-in-aimo, Version 1
++# (scriptVersionId 312063593), released under the Apache License, Version 2.0
++# (http://www.apache.org/licenses/LICENSE-2.0). Original author: Koushik Rudra.
++# Changes by prvsiyan, 2026-10-08: the recipe's final code cell saved as this script (run in a staging directory); data paths read V12_DATA_ROOT, defaulting to the original literals.
++# ----------------------------------------------------------------------------------------------
+ import os
+ import json
+ from arc_loader import ArcDataset
+@@ -6,10 +13,10 @@
+ rerun_mode = os.getenv("KAGGLE_IS_COMPETITION_RERUN")
+ 
+ if rerun_mode:
+-    data = ArcDataset.from_file("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_test_challenges.json")
++    data = ArcDataset.from_file(os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_test_challenges.json"))
+ else:
+-    data = ArcDataset.from_file("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_challenges.json")
+-    data = data.load_replies("/kaggle/input/competitions/arc-prize-2026-arc-agi-2/arc-agi_evaluation_solutions.json")
++    data = ArcDataset.from_file(os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_evaluation_challenges.json"))
++    data = data.load_replies(os.path.join(os.environ.get("V12_DATA_ROOT", "/kaggle/input/competitions/arc-prize-2026-arc-agi-2"), "arc-agi_evaluation_solutions.json"))
+ 
+ decoder = ArcDecoder(data.split_multi_replies(), n_guesses=2)
+ 
+--- koushik_V1/cell0
++++ v12/v12-setup
+@@ -1,2 +1 @@
+-import time
+-global_end_time = time.time() + 12 * 3600 - 600
++# replaced by the v12-setup cell (see candidate)
+--- koushik_V1/cell6
++++ v12/v12-run-solver
+@@ -1 +1 @@
+-!UNSLOTH_DISABLE_STATISTICS=1 TRITON_PTXAS_PATH=/usr/local/cuda/bin/ptxas OMP_NUM_THREADS=12 python starter.py --end-time {global_end_time}
++# replaced by the v12-run-solver cell: same command under run_owned

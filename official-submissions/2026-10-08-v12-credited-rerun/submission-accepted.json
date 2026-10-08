@@ -1,0 +1,16 @@
+{
+ "submitted_utc": "2026-10-08T11:23:58Z",
+ "kernel_version": 12,
+ "file_name": "submission.json",
+ "submission_sha256": "dd0b421d212ecba72aded746c071542a23748dba56d8fc945e82c2fce4aef742",
+ "message": "Credited control rerun of koushikrudra/failed-in-aimo V1 (Apache-2.0; Qwen3-4B grids15_sft139 + per-task LoRA TTT), unchanged recipe with mount-path fallback and an owned 11h40m watchdog | commit run 1766 s, submission.json sha dd0b421d\u2026 | not our method; expected 31-32 per public reruns",
+ "new_rows": [
+  {
+   "ref": "56951295",
+   "date": "2026-10-08 11:23:48.547000",
+   "status": "SubmissionStatus.PENDING",
+   "description": "Credited control rerun of koushikrudra/failed-in-aimo V1 (Apache-2.0; Qwen3-4B grids15_sft139 + per-task LoRA TTT), unchanged recipe with mount-path fallback and an owned 11h40m watchdog | commit run 1766 s, submission.json sha dd0b421d\u2026 | not our method; expected 31-32 per public reruns"
+  }
+ ],
+ "official_score": null
+}
