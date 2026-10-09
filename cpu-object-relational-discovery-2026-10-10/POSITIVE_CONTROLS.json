@@ -1,0 +1,18 @@
+{
+  "schema": "invented-object-dsl-controls-v1",
+  "passed": 11,
+  "checks": [
+    "unique largest object crop under translated resized canvas",
+    "crop prediction equivariant under palette permutation with changed background",
+    "copy smallest object adjacent to largest anchor with changed colors and canvas",
+    "axis bridge extends across new distance and color",
+    "equal-area object selector abstains rather than choosing coordinate order",
+    "reject test truth",
+    "reject top-level identifier",
+    "reject nested identifier",
+    "reject 31-column grid",
+    "reject ragged grid",
+    "reject bool color"
+  ],
+  "limits": "Synthetic controls establish mechanics only; no benchmark or official score claims."
+}

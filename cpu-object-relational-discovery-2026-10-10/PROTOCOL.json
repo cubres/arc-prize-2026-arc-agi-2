@@ -1,0 +1,22 @@
+{
+  "schema": "original-object-relational-discovery-protocol-v1",
+  "cohort": "already-exposed public ARC-AGI-2 evaluation; 120 tasks and 172 outputs",
+  "discovery_only": true,
+  "promotion_gate": "Independent exact reproduction and positive unique incremental outputs; this public screen alone never establishes held-out or official performance.",
+  "grammar": {
+    "backgrounds": ["unique_mode", "zero"],
+    "connectivity": [4, 8],
+    "component_types": ["monochrome", "foreground"],
+    "selectors": ["largest_area", "smallest_area", "largest_box", "smallest_box", "widest", "narrowest", "tallest", "shortest", "topmost", "bottommost", "leftmost", "rightmost", "unique_shape", "unique_color", "outer_container", "inner_contained"],
+    "unary": ["crop_raw_D4", "crop_isolated_D4", "keep", "erase", "recolor_fixed_demonstration_fitted"],
+    "relational": ["recolor_to_anchor", "crop_pair", "move", "copy", "axis_bridge"],
+    "translations": ["align_top_left", "align_center", "above_left", "below_left", "left_top", "right_top", "align_center_row", "align_center_column"],
+    "rank": "fixed segmentation, selector, operation enumeration order; exact demonstration fits only",
+    "ambiguity": "Tied selectors abstain. More than two distinct complete test prediction bundles among all fitted programs makes the task abstain; never truncate program search into a purported confident prediction."
+  },
+  "bounds": {"grid_side": 30, "demonstrations": [2, 10], "tests": [1, 8], "components": 40, "task_cooperative_cpu_seconds": 1.2, "whole_cooperative_cpu_seconds": 165, "process_hard_cpu_seconds": 180},
+  "truth_separation": "Runner strips test extras and top-level IDs before solver invocation; solver rejects any non-contract keys; solutions and reference open only in separate evaluator after source and prediction sealing.",
+  "controls": "Invented object selection, unique selector tie abstention, relational placement and bridges; palette permutation, translation/canvas resize, forbidden truth/UID and malformed-grid rejection.",
+  "deployable_merge": "Deduplicate reference attempts, retain their order, append original attempts only into free slots up to two; truth is used only for separate scoring and oracle-union upper bound.",
+  "license": "MIT for original implementation and documents; no competitor source or external datasets copied."
+}

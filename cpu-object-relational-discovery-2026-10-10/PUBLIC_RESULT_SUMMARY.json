@@ -1,0 +1,66 @@
+{
+  "ambiguous_tasks": 0,
+  "discovery_only": true,
+  "fill_only_incremental_outputs": 0,
+  "instrumentation": {
+    "contract_rejections": 0,
+    "reference_opened_by_runner": false,
+    "solutions_opened_by_runner": false,
+    "solver_receives_join_keys": false,
+    "stripped_test_extra_keys": 0,
+    "stripped_top_level_extra_keys": 0
+  },
+  "limits": [
+    "Already-exposed public discovery; not held-out evidence or an official score.",
+    "Task and whole-run budgets are cooperative; process CPU resource limit is 180 seconds.",
+    "Timed-out and more-than-two-bundle tasks abstain.",
+    "Oracle union is an upper bound, not a deployable selector.",
+    "Unsigned seals bind current bytes, not independently proven chronology or historical non-exposure."
+  ],
+  "maximum_recorded_task_cpu_seconds": 0.35578200000000004,
+  "metrics": {
+    "fill_only": {
+      "exact_outputs": 45,
+      "fractional_task_credit_exact": "197/6",
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111,
+      "mean_task_credit_exact": "197/720"
+    },
+    "object_dsl": {
+      "exact_outputs": 0,
+      "fractional_task_credit_exact": "0",
+      "fully_solved_tasks": 0,
+      "mean_fractional_credit_percent": 0.0,
+      "mean_task_credit_exact": "0"
+    },
+    "oracle_union": {
+      "exact_outputs": 45,
+      "fractional_task_credit_exact": "197/6",
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111,
+      "mean_task_credit_exact": "197/720"
+    },
+    "reference": {
+      "exact_outputs": 45,
+      "fractional_task_credit_exact": "197/6",
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111,
+      "mean_task_credit_exact": "197/720"
+    }
+  },
+  "nonempty_output_slots": 0,
+  "official_score": null,
+  "outputs": 172,
+  "prediction_cpu_seconds": 18.739859,
+  "prediction_sha256": "51b5de2f11fd9ae31a940603dbff03e95f6633dd40bac642f9bb3ed6220b76c2",
+  "prediction_wall_seconds": 22.148615917001734,
+  "reference_sha256": "431be75903b9aa1458ceee95524e34c703c6ab931f49fb2a673ce25894af20f0",
+  "schema": "original-arc2-object-discovery-result-v1",
+  "solution_sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1",
+  "tasks": 120,
+  "tasks_with_fit": 0,
+  "timed_records": 120,
+  "timeout_tasks": 0,
+  "total_programs_checked": 4696960,
+  "unique_incremental_outputs": 0
+}

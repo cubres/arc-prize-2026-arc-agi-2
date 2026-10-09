@@ -1,0 +1,28 @@
+{
+  "schema": "independent-object-discovery-public-review-v1",
+  "status": "PASS_EXPOSED_DISCOVERY_NEGATIVE_RESULT",
+  "promotion": "HOLD_NO_INCREMENTAL_GAIN",
+  "checks_passed": 743,
+  "all120_substantive_prediction_records_identical": true,
+  "evaluation_and_public_summary_byte_identical": true,
+  "all11_original_controls_byte_identical": true,
+  "review_cpu_seconds": 14.141586,
+  "prediction_replay_cpu_seconds": 13.696674,
+  "nice_value": 5,
+  "process_cpu_limit": [
+    180,
+    180
+  ],
+  "observed_prediction_solution_or_reference_opens": 0,
+  "incremental_gain": 0,
+  "independent_control_scope": [
+    "natural three-bundle ambiguous abstention",
+    "simulated-clock incomplete search fail-closed"
+  ],
+  "limits": [
+    "Already-exposed public discovery; no hidden/held-out/official gain.",
+    "Audit hook checks observed replay only; unsigned seals do not prove history.",
+    "Task and whole-run CPU budgets cooperative; process RLIMIT_CPU180 hard CPU cap, not wall-clock bound."
+  ],
+  "review_receipt_sha256": "3cfe10542a696d0ea2a3fb810f9ef1158e6d4588784f956abf19db2a6606b2b0"
+}
