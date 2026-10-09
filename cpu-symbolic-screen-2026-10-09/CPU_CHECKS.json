@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "checks": [
+    "rotation rectangular",
+    "color map inconsistent abstains",
+    "unknown nonidentity color abstains",
+    "unknown identity color unchanged",
+    "tie components abstains",
+    "crop exact",
+    "demonstration recolor generalizes",
+    "solver rejects test truth",
+    "solver rejects uid side channel"
+  ]
+}

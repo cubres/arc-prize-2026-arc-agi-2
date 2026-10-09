@@ -1,0 +1,15 @@
+{
+ "schema":"original-arc2-local-rule-discovery-v1",
+ "discovery_only":true,
+ "public_evaluation_already_exposed":true,
+ "demo_diagnostic":"81/120 tasks preserve grid shape in every demonstration. Prior grammar fit zero demonstrations. New families model local changes rather than whole-grid geometry.",
+ "families":["fixed small source-color motifs recolored on all motif pixels","color-relative local lookup with intersection of valid copy/background/constant actions across identical demonstration neighborhoods"],
+ "neighborhoods":["cross radius1","square radius1","square radius2"],
+ "backgrounds":["mode","zero"],
+ "unknown_neighborhood":"identity; count unknowns explicitly",
+ "ranking":"motif family first by fixed order; local rules ranked by neighborhood size then changed rule count; first two distinct outputs",
+ "caps":{"maximum_grid_height":30,"maximum_grid_width":30,"maximum_task_seconds":2,"maximum_whole_seconds":90,"maximum_motif_templates":40,"maximum_local_configs":6},
+ "truth_separation":"Solver accepts demonstration input/output and test input only; no task id, solution file or reference predictions. Separate evaluator after prediction and source seal.",
+ "promotion":"No hidden-score or held-out claim; even positive incremental fills need independent confirmation.",
+ "license":"MIT for new original source; existing external data/code terms separate"
+}

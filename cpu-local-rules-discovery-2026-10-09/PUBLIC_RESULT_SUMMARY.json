@@ -1,0 +1,48 @@
+{
+  "discovery_only": true,
+  "fill_only_incremental_outputs": 0,
+  "limits": [
+    "Already-exposed public discovery set, not held out.",
+    "Unknown neighborhoods copy input; this is a fallible inductive bias.",
+    "Oracle union is an upper bound, not a deployable two-attempt selector.",
+    "No score or promotion claim."
+  ],
+  "maximum_task_seconds": 0.031997917001717724,
+  "metrics": {
+    "fill_only": {
+      "exact_outputs": 45,
+      "fractional_task_credit": 32.833333333333336,
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111
+    },
+    "local_rules": {
+      "exact_outputs": 1,
+      "fractional_task_credit": 1.0,
+      "fully_solved_tasks": 1,
+      "mean_fractional_credit_percent": 0.8333333333333334
+    },
+    "oracle_union": {
+      "exact_outputs": 45,
+      "fractional_task_credit": 32.833333333333336,
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111
+    },
+    "reference": {
+      "exact_outputs": 45,
+      "fractional_task_credit": 32.833333333333336,
+      "fully_solved_tasks": 30,
+      "mean_fractional_credit_percent": 27.36111111111111
+    }
+  },
+  "official_score": null,
+  "outputs": 172,
+  "prediction_seconds": 0.44017141699805507,
+  "prediction_sha256": "896210294251212a320da20674de190150048f0d228bc5ce6bc61358d279ad35",
+  "reference_sha256": "431be75903b9aa1458ceee95524e34c703c6ab931f49fb2a673ce25894af20f0",
+  "schema": "original-cellular-discovery-evaluation-v1",
+  "solution_sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1",
+  "task_timeouts": 0,
+  "tasks": 120,
+  "tasks_with_fit": 15,
+  "unique_incremental_outputs": 0
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "arc2-frozen-dfs-coverage-hypothesis-v1",
+  "status": "READY_TO_HANDOFF_PROTOCOL_ONLY_NOT_EXECUTED",
+  "question": "Does relaxing the sequence-probability DFS cutoff improve actual candidate coverage under equal compute?",
+  "control": {"sequence_probability_cutoff": 0.2, "max_nll": 1.6094379124341003},
+  "treatment": {"sequence_probability_cutoff": 0.09, "max_nll": 2.4079456086518722},
+  "reason": "Our credited recipe fixes max_score=-log(0.2). The original ARChitects primary paper used a 9% cutoff. Our V13 pool study shows truth absent from 12/13 outputs, so ranking cannot repair these misses. Existing V20 instrumentation does not expose this cutoff as a knob.",
+  "transfer_limit": "The source paper's 9% result is ARC-AGI-1, not evidence of an ARC-AGI-2 gain.",
+  "panel": "A new predeclared subset of public TRAINING tasks, using their test inputs as public development queries. Do not choose tasks by observed evaluation failures. Keep a task-disjoint confirmation subset untouched.",
+  "fixed": ["checkpoint and full SHA inventory", "per-task LoRA settings and seed", "augmentations and their seeds", "selector", "task queue", "max tokens", "per-task/whole deadline and owned cleanup", "same tasks, equal wall budget, counterbalanced arm order"],
+  "primary_metric": "Exact true grid anywhere in each arm's frozen candidate pool; read truth only in a separate post-seal evaluator.",
+  "secondary_metrics": ["deployable top-two exact outputs", "invalid shapes", "unique candidates", "DFS nodes", "decode seconds", "peak memory", "lost control solves", "per-output fairness", "cap hits and whole-run truncation"],
+  "stop_rule": "Reject a treatment that increases runtime or cap losses without confirmed additional deployable solves. Do not promote from an oracle-only union, a single leaderboard draw, or training loss.",
+  "execution_owner": "Claude campaign coordinator; no Codex launch or submission authorization is implied by this source-only packet.",
+  "cost": "Measure one matched pair before allocating the full panel; no empirical runtime estimate for the relaxed cutoff yet.",
+  "copyright": "Hypothesis independently described from primary research; retain all existing recipe Apache-2.0 notices and model terms. No third-party code included."
+}

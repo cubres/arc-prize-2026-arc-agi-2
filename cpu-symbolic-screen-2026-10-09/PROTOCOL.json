@@ -1,0 +1,14 @@
+{
+  "schema": "arc2-original-symbolic-supplement-v1",
+  "fixed_before_public_solutions_opened": true,
+  "method": "finite demonstration-fitted spatial program search with a globally consistent color map",
+  "inputs": "public challenge demonstration input/output and test input only",
+  "allowed": "D4 orientation; crop by background or color; connected component size; binary equal-panel fusion; fixed 1..3 nearest scale or tile",
+  "ranking": "program description cost then lexicographic name; first two distinct test predictions",
+  "strict_alternative": "return only if every exact-fit program agrees per test input",
+  "test_truth_in_solver": false,
+  "task_id_in_solver": false,
+  "no_promotion": "One exposed public-evaluation measurement cannot establish a hidden leaderboard gain. Do not tune after evaluation in this study.",
+  "evaluation": "separate process after predictions and source hashes are sealed; exact top2 output and fully solved task plus per-task fractional credit; compare frozen rokaiya recipe artifacts, report oracle union only as upper bound",
+  "license": "MIT for new original source only; external data and references retain separate licenses"
+}

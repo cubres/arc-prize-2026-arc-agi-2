@@ -1,0 +1,19 @@
+--- symbolic_supplement.py
++++ symbolic_supplement_v2.py
+@@ -163,13 +163,13 @@
+ def solve_task(task):
+     if set(task) != {"train", "test"}:
+         raise ValueError("Only demonstration pairs and test inputs are accepted")
+-    if len(task["train"]) < 2 or not task["test"]:
+-        return {"attempts": [[] for _ in task["test"]], "strict": [[] for _ in task["test"]],
+-                "fit_count": 0, "reason": "At least two demonstrations required"}
+     if any(set(pair) != {"input", "output"} for pair in task["train"]):
+         raise ValueError("Demonstrations require input/output only")
+     if any(set(pair) != {"input"} for pair in task["test"]):
+         raise ValueError("Test outputs are forbidden")
++    if len(task["train"]) < 2 or not task["test"]:
++        return {"attempts": [[] for _ in task["test"]], "strict": [[] for _ in task["test"]],
++                "fit_count": 0, "reason": "At least two demonstrations required"}
+     inputs = [grid(pair["input"]) for pair in task["train"]]
+     targets = [grid(pair["output"]) for pair in task["train"]]
+     tests = [grid(pair["input"]) for pair in task["test"]]

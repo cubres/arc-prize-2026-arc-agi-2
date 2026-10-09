@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "checks": [
+    "short demonstration forbidden keys rejected",
+    "short demonstration forbidden keys rejected",
+    "short demonstration valid abstention unchanged",
+    "short demonstration forbidden keys rejected",
+    "short demonstration forbidden keys rejected",
+    "short demonstration valid abstention unchanged"
+  ],
+  "v1_preserved_sha256": "91d12f810efe362a6871e7d2a7a20ce55420b9562a820d568a59ed71f9047d40",
+  "v2_sha256": "96653776f1ca7c51cbb3d228d24a59c61f781974017c21d1c70d0730666e197d",
+  "scientific_change": false,
+  "observed_evaluation_uses_v1": true,
+  "scope": "Input validation ordering only; no ranking or grammar retuning"
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "cross translated/resized with distractor",
+      "pass": true
+    },
+    {
+      "name": "square translated/resized with distractor",
+      "pass": true
+    },
+    {
+      "name": "line translated/resized with distractor",
+      "pass": true
+    },
+    {
+      "name": "L translated/resized with distractor",
+      "pass": true
+    },
+    {
+      "name": "forbidden truth rejected before abstention",
+      "pass": true
+    },
+    {
+      "name": "31-wide grid rejected",
+      "pass": true
+    }
+  ]
+}

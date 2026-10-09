@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "control": "identity",
+      "passed": true,
+      "fit_count": 14
+    },
+    {
+      "control": "rotation90",
+      "passed": true,
+      "fit_count": 14
+    },
+    {
+      "control": "horizontal_reflect",
+      "passed": true,
+      "fit_count": 14
+    },
+    {
+      "control": "scale2x3",
+      "passed": true,
+      "fit_count": 7
+    },
+    {
+      "control": "tile2x3",
+      "passed": true,
+      "fit_count": 7
+    },
+    {
+      "control": "recolor",
+      "passed": true,
+      "fit_count": 14
+    },
+    {
+      "control": "foreground_crop",
+      "passed": true,
+      "fit_count": 12
+    }
+  ],
+  "scope": "Invented correctness controls only. No public evaluation retuning."
+}
