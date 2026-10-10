@@ -1,0 +1,22 @@
+{
+ "competition": "arc-prize-2026-arc-agi-2",
+ "observed_utc": "2026-10-10T10:24:10Z",
+ "rows": [
+  {
+   "date": "2026-10-08T11:23:48Z",
+   "description": "credited rerun of koushikrudra/failed-in-aimo V1 (bench)",
+   "public_score": 31.11,
+   "ref": 56951295,
+   "status": "COMPLETE"
+  },
+  {
+   "date": "2026-10-09T17:56:28Z",
+   "description": "public version 19 (recipe + probmul_3 for both attempts + crc32 seed pin)",
+   "public_score": null,
+   "ref": 57016777,
+   "status": "pending (no status in snapshot)"
+  }
+ ],
+ "schema": "arc2-row-status-v1",
+ "source": "live submissions snapshot (ARC2 rows only)"
+}
