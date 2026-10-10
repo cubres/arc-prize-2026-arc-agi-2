@@ -1,0 +1,664 @@
+{
+  "id": "prvsiyan/arc-agi-2-candidate-pool-study",
+  "title": "ARC-AGI-2 TTT Candidate Pools: an 8-task pilot",
+  "subtitle": "Test-time training pools: 79 files, 94 decoded samples, 13 outputs",
+  "description": "# ARC-AGI-2 TTT Candidate Pools: an 8-task pilot\n\n## What\n\nThis dataset holds every candidate grid, score and selection from one pilot run of a test-time training (TTT) solver on eight ARC-AGI-2 public evaluation tasks. The solver is the public recipe `koushikrudra/failed-in-aimo` (version 1) on Kaggle. It fine-tunes a small LoRA adapter on each task's own examples, then decodes the test outputs with beam search. Each decoded grid is re-scored on eight augmented queries.\n\nThe files are a flat CSV and JSON Lines form of the candidate pools, the two selection rules compared on identical pools, the evaluator's per-output scoring, the solver's timeline, and a fill-calibration table for a planned second pass over weak outputs. The run solved one of 13 test outputs. It is a descriptive pilot, not a leaderboard or benchmark result.\n\nThe dataset contains no ARC-AGI-2 task inputs and no public answers. Task ids are included so that each row can be matched to the public tasks on the competition page.\n\n## Why\n\n- **Candidate pools with scores.** Every decoded grid, with its beam score and its eight augmented-query scores, in flat CSV and in nested JSON. Each grid has a SHA-256 hash, so a grid can be matched to a public answer by anyone who holds that answer.\n- **Two selection rules on identical pools.** KGMoN and `score_full_probmul_3` are recorded for the same pools. In this pilot they agree on every decoded output, so the run cannot tell them apart. It is a template for a larger panel, not a verdict on either rule.\n- **Timing of TTT on L4 GPUs.** Per-task seconds, per-batch timelines and the two stop causes (per-task cap and global end time), with the stop rule and the clock bracket written out.\n- **A fill-calibration template.** The weak-output rule, the second-slot hit rate with a Wilson interval, and a Beta prior for a fill pass. The public-run counts come from a third-party public run, named under Provenance.\n- **A restricted pickle reader.** `code__pool_to_jsonl.py` loads numpy-in-pickle files while allowing only the numpy array constructors. It is provenance code; see Files.\n\n## Files\n\nEvery file sits at the top level of the dataset. Sub-folders were flattened, so a file that was `data/outputs.csv` is `data__outputs.csv`. Paths below are relative to the dataset root.\n\nTables (columns are listed in the Columns section):\n\n- `data__candidate_pool_samples.csv`: one row per decoded grid (94 rows, 21 columns). The easiest table to load.\n- `data__candidate_pools.jsonl`: the same samples nested by pool file (79 lines), with every field of the original pool files.\n- `data__candidate_pools_index.csv`: one row per pool file (79 rows, 11 columns).\n- `data__outputs.csv`: one row per test output (13 rows, 27 columns): solved flags, selector ranks, timings and the weak-output flag.\n- `data__predictions.jsonl`: the final two attempts for each of the 13 test outputs (13 lines).\n- `data__selection_alternatives.jsonl`: the top four candidates under each selector, for the 12 decoded outputs (12 lines).\n- `data__solver_log.jsonl`: the solver's log lines with unix timestamps and GPU rank, so the timeline can be rebuilt (183 lines).\n- `data__decode_batches.csv`: one row per decode batch (42 rows, 7 columns).\n- `data__task_summary.csv`: one row per panel task (8 rows, 13 columns): timing, decode batches, evaluator score and stop cause.\n\nRecords (JSON objects, not tables):\n\n- `data__evaluation.json`: the evaluator's frozen output, unmodified. Top-level keys: `schema`, `scope`, `evaluated_unix`, `solutions_sha256`, `freeze_manifest`, `summary`, `tasks`.\n- `data__freeze_manifest.json`: the freeze record, unmodified. Keys: `alternatives_sha256`, `decoded_base_keys`, `frozen_unix`, `panel`, `predictions_sha256`, `solutions_opened`.\n- `data__run_summary.json`: stage statuses and elapsed times, deadlines, hardware and a note. Keys: `schema`, `source_schema`, `panel`, `pool_files`, `stages`, `solver_started_after_seconds`, `finished_after_seconds`, `deadlines_seconds`, `hardware`, `note`.\n- `data__fill_calibration.json`: the weak-output counts, second-slot hit rate and Beta prior for a fill pass. Keys: `note`, `p_fill_prior`, `public_run` (counts from a third-party public run, with its source), `pilot_outputs` (the 13 pilot outputs), `schema`, `views_per_output`.\n- `data__analysis_extra.json`: output of the analysis script, byte-identical to its source (only the file name was changed). Keys: `end_offset_from_last_line_s`, `end_time_estimate_stamp`, `log_lines`, `per_output`, `pool_files`, `pool_rows`, `pool_samples_total`, `schema`, `solver_last_stamp`, `timeline`.\n\nCode and documentation:\n\n- `code__pool_to_jsonl.py`: restricted pickle reader and converter (provenance). It produced `data__candidate_pools.jsonl` from the 79 pickles. The pickles, the public answers and the index are not in this dataset, so the script cannot be run from this folder alone.\n- `README.md`: this card. `NOTICE.md`: per-file terms and third-party inputs. `LICENSE`: the Apache License 2.0 text. `MANIFEST.json`: the SHA-256 and byte size of every other file in this dataset. `dataset-metadata.json`: the Kaggle metadata.\n\n## Columns\n\nEvery column of every table is listed below. The types and meanings are the same as the Kaggle schema in `dataset-metadata.json`. Booleans are written as `true` and `false`; blank cells mean \"not applicable or not recorded\", as described for each column.\n\n### `data__candidate_pool_samples.csv` (21 columns)\n\n- `pool_file` (string): Pool file name: the output_id, then the geometric chain, then permute and ten colour digits, then ex and the example-order digits, joined by dots\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `rank_in_file` (integer): 0-based position of the sample in its pool file\n- `beam_score` (number): Recipe beam score for the decoded grid, unitless; lower is more confident\n- `score_aug_1` (number): Augmented-query score 1 of 8 for the grid, unitless; lower is more confident\n- `score_aug_2` (number): Augmented-query score 2 of 8, unitless\n- `score_aug_3` (number): Augmented-query score 3 of 8, unitless\n- `score_aug_4` (number): Augmented-query score 4 of 8, unitless\n- `score_aug_5` (number): Augmented-query score 5 of 8, unitless\n- `score_aug_6` (number): Augmented-query score 6 of 8, unitless\n- `score_aug_7` (number): Augmented-query score 7 of 8, unitless\n- `score_aug_8` (number): Augmented-query score 8 of 8, unitless\n- `grid_rows` (integer): Grid height in cells\n- `grid_cols` (integer): Grid width in cells\n- `grid` (string): JSON text of the grid, a list of rows of digits 0 to 9; blank when redacted\n- `grid_sha256` (string): SHA-256 of the compact JSON of the grid (kept when redacted)\n- `matches_public_solution` (boolean): The grid equals the ARC public answer for this output\n- `grid_redacted` (boolean): The grid is blank because it equals the public answer\n- `written_by_batch_end_after_task_start_s` (number): Seconds after task start when the pool file was written (end of its decode batch)\n\n### `data__candidate_pools.jsonl` (10 top-level keys, one JSON object per line)\n\n- `pool_file` (string): Pool file name as written by the recipe\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `geometric_chain` (string): Dot-separated geometric ops (transpose, rot90) before decoding; empty means identity\n- `colour_permutation` (string): Ten digits naming the colour permutation (recipe naming)\n- `example_order` (string): Digits naming the sequence of training examples (recipe naming)\n- `written_by_batch_end_after_task_start_s` (number): Seconds after task start when the file was written (end of its decode batch)\n- `sample_count` (integer): Number of decoded samples in the file\n- `samples` (array): One object per decoded sample: rank_in_file (integer), beam_score (number), score_aug (array of 8 numbers), grid_rows, grid_cols (integer), grid (array of rows of integers, or null when redacted), grid_sha256 (string), matches_public_solution and grid_redacted (boolean)\n\nEach element of `samples` (one per decoded grid) has these keys:\n- `rank_in_file` (integer): 0-based position of the sample in its pool file.\n- `beam_score` (number): recipe beam score for the grid, unitless; lower is more confident.\n- `score_aug` (array of 8 numbers): the eight augmented-query scores, in order, unitless; lower is more confident.\n- `grid_rows` (integer), `grid_cols` (integer): grid height and width in cells.\n- `grid` (array of rows of integers, or `null` when redacted): the grid, rows of digits 0 to 9.\n- `grid_sha256` (string): SHA-256 of the compact JSON of the grid; kept when redacted.\n- `matches_public_solution` (boolean): the grid equals the ARC public answer for its test output.\n- `grid_redacted` (boolean): the grid is `null` because it equals the public answer.\n\n### `data__candidate_pools_index.csv` (11 columns)\n\n- `pool_file` (string): Pool file name as written by the recipe\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `geometric_chain` (string): Dot-separated geometric ops before decoding; empty means identity\n- `colour_permutation` (string): Ten digits naming the colour permutation (recipe naming)\n- `example_order` (string): Digits naming the sequence of training examples (recipe naming)\n- `sample_count` (integer): Number of decoded samples in the file\n- `distinct_grids_in_file` (integer): Number of distinct grid hashes in the file\n- `truth_in_file` (boolean): The file contains the ARC public answer\n- `written_by_batch_end_after_task_start_s` (number): Seconds after task start when the file was written; blank if not recorded\n\n### `data__decode_batches.csv` (7 columns)\n\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `worker_rank` (integer): GPU rank (0 to 3) that ran the task\n- `batch_index` (integer): Decode batch number within the task, 1-based\n- `subkeys_in_batch` (integer): Subkeys decoded in the batch; 4 in every batch of this run\n- `start_after_task_start_seconds` (number): Batch start, seconds after task start\n- `end_after_task_start_seconds` (number): Batch end, seconds after task start\n- `duration_seconds` (number): Batch duration in seconds\n\n### `data__outputs.csv` (27 columns)\n\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `pool_files` (integer): Pool files for this output (0 to 16)\n- `pool_samples` (integer): Decoded samples for this output\n- `distinct_candidates` (integer): Distinct decoded grids; blank if nothing was decoded\n- `truth_in_pool` (boolean): The ARC public answer is in the pool\n- `solved` (boolean): Exact attempt 1 or attempt 2\n- `exact_attempt_1` (boolean): Attempt 1 equals the ARC public answer\n- `exact_attempt_2` (boolean): Attempt 2 equals the ARC public answer\n- `truth_rank_kgmon` (integer): Rank of the public answer under KGMoN (score_kgmon); blank if absent\n- `truth_rank_probmul` (integer): Rank of the public answer under score_full_probmul_3; blank if absent\n- `first_seen_seconds_after_task_start` (number): Seconds after task start when the public answer first appeared in a pool; blank if never\n- `weak_output` (boolean): At most one distinct grid in the main pool, so the second slot is empty or duplicated\n- `top1_support_views` (integer): Number of pool files (of 16 planned views) that contain the top-1 grid\n- `views_per_output` (integer): Planned views per output, always 16\n- `attempt_1_rows` (integer): Attempt 1 grid height\n- `attempt_1_cols` (integer): Attempt 1 grid width\n- `attempt_1_is_placeholder` (boolean): Attempt 1 is the placeholder [[0]]\n- `attempt_1_redacted` (boolean): Attempt 1 grid is redacted\n- `attempt_2_rows` (integer): Attempt 2 grid height\n- `attempt_2_cols` (integer): Attempt 2 grid width\n- `attempt_2_is_placeholder` (boolean): Attempt 2 is the placeholder [[0]]\n- `attempt_2_redacted` (boolean): Attempt 2 grid is redacted\n- `task_seconds` (number): Wall time of the task in seconds, repeated for each of its outputs\n- `hit_task_timeout` (boolean): The task stopped at a stop line\n- `panel_position` (integer): Order of the task in the panel, 1 to 8\n\n### `data__predictions.jsonl` (5 top-level keys, one JSON object per line)\n\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `attempt_1` (object): Attempt 1: grid_rows, grid_cols (integer), grid (array of rows, or null when redacted), grid_sha256 (string), matches_public_solution, grid_redacted, is_placeholder (boolean)\n- `attempt_2` (object): Attempt 2, same keys as attempt_1\n\n`attempt_1` and `attempt_2` are objects with these keys:\n- `grid_rows` (integer), `grid_cols` (integer): attempt shape.\n- `grid` (array of rows, or `null` when redacted): the attempt grid.\n- `grid_sha256` (string): SHA-256 of the compact JSON of the grid.\n- `matches_public_solution` (boolean): the attempt equals the public answer.\n- `grid_redacted` (boolean): the grid is `null` because it equals the public answer.\n- `is_placeholder` (boolean): the attempt is the placeholder `[[0]]`.\n\n### `data__selection_alternatives.jsonl` (8 top-level keys, one JSON object per line)\n\n- `output_id` (string): Test output id: task_id plus test_output_index\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `test_output_index` (integer): Which test input of the task, 0 or 1\n- `distinct_candidates` (integer): Distinct decoded grids for the output\n- `kgmon_top4` (array): Up to four candidates ranked by KGMoN; each has rank (integer, 1 best), grid_rows, grid_cols, grid, grid_sha256, matches_public_solution, grid_redacted\n- `probmul_top4` (array): Up to four candidates ranked by score_full_probmul_3; same keys as kgmon_top4\n- `kgmon_top2_set_equals_probmul_top2_set` (boolean): The two selectors pick the same top-2 set\n- `kgmon_top1_equals_probmul_top1` (boolean): The two selectors pick the same top-1\n\n`kgmon_top4` and `probmul_top4` are lists of up to four objects, ranked by each selector, with these keys:\n- `rank` (integer): 1 is best; rank 1 is attempt 1.\n- `grid_rows` (integer), `grid_cols` (integer): grid height and width in cells.\n- `grid` (array of rows, or `null` when redacted): the grid.\n- `grid_sha256` (string): SHA-256 of the compact JSON of the grid.\n- `matches_public_solution` (boolean): the grid equals the public answer.\n- `grid_redacted` (boolean): the grid is `null` because it equals the public answer.\n\n### `data__solver_log.jsonl` (4 keys)\n\n- `seconds_since_first_line` (number): Seconds since the first solver log line\n- `unix_time` (number): Unix time of the log line\n- `rank` (integer): GPU rank 0 to 3, or null for library banners\n- `text` (string): Raw log line\n\n### `data__task_summary.csv` (13 columns)\n\n- `task_id` (string): ARC-AGI-2 public evaluation task id\n- `panel_position` (integer): Order of the task in the panel, 1 to 8\n- `worker_rank` (integer): GPU rank (0 to 3) that ran the task\n- `outputs` (integer): Test outputs in the task\n- `reached` (boolean): The task ran\n- `task_score` (number): Evaluator score for the task, 0 to 1\n- `task_seconds` (number): Wall time of the task in seconds\n- `train_seconds` (number): LoRA training time of the task in seconds\n- `decode_batches` (integer): Decode batches run\n- `hit_task_timeout` (boolean): The task stopped at a stop line\n- `timeout_spend_seconds` (number): Solver time at the stop line in seconds; blank if no stop\n- `timeout_cause` (string): Blank if no stop; 'per-task cap (spend above 1200 s)' or 'global end time (spend below 1200 s)'\n- `break_unix_time` (number): Unix time of the stop line in the solver log; blank if no stop\n\n## How to load\n\nThese snippets were run on the files as published. They use pandas and NumPy.\n\n```python\nimport pandas as pd\n\nsamples = pd.read_csv(\"data__candidate_pool_samples.csv\")   # one row per decoded grid\nprint(samples.groupby(\"output_id\")[\"grid_sha256\"].nunique())  # distinct grids per output\n```\n\n```python\nimport json\nimport numpy as np\nimport pandas as pd\n\nsamples = pd.read_csv(\"data__candidate_pool_samples.csv\")\nrow = samples[samples[\"grid\"].notna()].iloc[0]            # redacted grids are blank\ngrid = np.array(json.loads(row[\"grid\"]))                  # grid is JSON text: a list of rows\nprint(row[\"pool_file\"], row[\"beam_score\"], grid.shape)\n```\n\n```python\nimport pandas as pd\n\noutputs = pd.read_csv(\"data__outputs.csv\")                # true/false columns load as booleans\nprint(outputs.loc[outputs[\"solved\"], [\"output_id\", \"pool_samples\", \"first_seen_seconds_after_task_start\"]])\n```\n\n```python\nimport json\n\nwith open(\"data__selection_alternatives.jsonl\", encoding=\"utf-8\") as f:\n    rows = [json.loads(line) for line in f]\nsame = sum(r[\"kgmon_top2_set_equals_probmul_top2_set\"] for r in rows)\nprint(f\"top-2 sets identical for {same} of {len(rows)} decoded outputs\")\n```\n\nThe task ids are ARC-AGI-2 public evaluation ids. The tasks themselves are on the ARC Prize 2026 competition page, `kaggle.com/competitions/arc-prize-2026-arc-agi-2`. This dataset contains no task inputs and no public answers.\n\n## Headline numbers (pilot run, frozen 2026-10-08)\n\n| Quantity | Value |\n|---|---|\n| Panel | 8 public evaluation tasks, 13 test outputs, 12 with a candidate pool |\n| Pool files / decoded samples | 79 / 94 |\n| Solved outputs (exact attempt 1 or 2) | 1 of 13 (`45a5af55_0`); its first correct candidate was written 240.8 s after its task started |\n| Correct grid in a pool but outside the KGMoN top 2 | 0 of 13 |\n| KGMoN and `score_full_probmul_3` top-2 sets identical | 12 of 12 decoded outputs; in 5 of them there are at most two distinct grids, so agreement is automatic |\n| Panel score (pilot evaluator, not a leaderboard score) | 1.0 of 8 tasks (`45a5af55` only) |\n| Task seconds per task | median 640.3, p90 1083.2, mean 699.0, sum 5,592.3 |\n| Decode batches | 42 batches of 4 subkeys each; median 68.0 s, longest 368.5 s |\n| Stopped by the per-task cap | 1 task (`221dfab4`, 1208.8 s, cap 1200 s) |\n| Stopped by the global end time | 2 tasks (`a32d8b75` at 1029.3 s, `cb2d8a2c` at 310.2 s) |\n| Fill calibration, third-party public run `rokaiyasomapti/reproduce-nvarc-2025-results` version 2 (not an official row; see Provenance) | 172 outputs of 120 tasks: 25 weak (14.5%); 4 of 25 solved; second-slot hit 5 of 111 (4.5%; Wilson 95% 1.9% to 10.1%) |\n\nThis pilot is not a leaderboard submission, and no official leaderboard row is claimed for it. The panel score is the pilot evaluator's score on eight tasks.\n\n## Glossary\n\n- **Test output (`output_id`).** One test input of an ARC-AGI-2 task has one answer grid. `output_id` is `<task_id>_<index>`, with index 0 or 1.\n- **Panel.** The eight tasks chosen for the pilot (see Panel).\n- **Subkey.** One augmented version of a test output's query: a geometric chain (`transpose`, `rot90`), a ten-digit colour permutation and an example order. The pool file names are subkeys.\n- **View.** One of the 16 planned subkeys of an output (8 geometric transforms times 2 augmentations). A view is decoded or not; the pilot decoded between 0 and 16 views per output.\n- **Pool file.** The decoded samples for one subkey, written when its decode batch ends.\n- **Decode batch.** Four subkeys decoded together by beam search.\n- **Sample.** One decoded grid, with its beam score and eight augmented-query scores. One row of `data__candidate_pool_samples.csv`.\n- **Beam score (`beam_score`).** The recipe's score for a decoded grid. Lower means more confident. The selectors use 3 minus this value.\n- **Augmented-query scores (`score_aug_1` to `score_aug_8`).** The grid re-scored on eight augmented versions of the puzzle's query, computed as four plus four. Lower means more confident.\n- **Candidate (distinct grid).** All samples with the same grid, grouped by grid hash.\n- **Attempt 1 and attempt 2.** The two answers given for an output: the top-ranked and second-ranked candidate under the selector used.\n- **Second slot.** Attempt 2. A **second-slot hit** is an output where attempt 1 is wrong, a second candidate exists, and attempt 2 is correct.\n- **Placeholder.** The recipe's default `[[0]]` grid, used when no candidate exists. Flagged by `is_placeholder`.\n- **KGMoN.** The recipe's `score_kgmon` selector. The recipe does not expand the acronym.\n- **score_full_probmul_3.** The recipe's second selector. It is described under Selection.\n- **Weak output.** In the pilot tables, an output whose main pool has at most one distinct grid, so the second slot is empty or duplicated. The third-party public run has no pool files, so there the proxy is an attempt-2 placeholder.\n- **Support.** For the top-1 grid, the number of pool files (views) that contain it, out of 16 planned views. Views that were not decoded count as absent.\n- **Trigger, deep pass and fill.** The planned second pass. An output triggers when it is weak and its top-1 support is at most 4 of 16 views. A deep pass re-decodes triggered tasks to try to fill the second slot. A fill is a correct second-slot candidate found this way. No deep pass was run in the pilot, so no fill has been measured.\n- **Global end time.** The wall-clock time after which the solver starts no new work. It is the setup start plus 1800 s.\n- **Per-task cap.** 1200 s of solver time for one task.\n- **Task score.** The evaluator's score for a task, from 0 to 1.\n\n## Panel\n\nThe eight tasks were fixed before the run. Order the 120 ARC-AGI-2 public evaluation tasks by the SHA-256 of `arc2-v13-pilot-20261008:` followed by the task id, and take the first eight. Doing this over the 120 ids gives exactly the eight panel tasks.\n\n| Position | Task | SHA-256 of `arc2-v13-pilot-20261008:` + task id |\n|---|---|---|\n| 1 | 45a5af55 | 033cb8205d32c58e1d8c756239f318b474707e03401dd1b7b8ff8da9ae87cc30 |\n| 2 | c7f57c3e | 05cdc03673422f832f8b2efad9dc52c14b5ef711f77fad93ad6e61fd4dbc82bf |\n| 3 | a32d8b75 | 065aacb223151ceca761744791dc40d1792de25d1a287392eb8bf0c9846213ef |\n| 4 | 247ef758 | 0c6ce2ac157b43b8cad172efa21e17dafb2b7397d805e27d45dc6600af4397df |\n| 5 | 221dfab4 | 0cd1b23e8f18d636fe31e1b45fc36b7d4591bb7da00ee267a6bc5e76f1f419f4 |\n| 6 | b10624e5 | 0f04c785c70793b2a3f6fdc8baebeb3ef00a75784c74d10a3d44140f097d59b2 |\n| 7 | cb2d8a2c | 16e320b0e20f30e9e84ceaa352d744ea980b869dd67a7621f520c7b5707176c1 |\n| 8 | 581f7754 | 17590e7bf7234476df4b91c685655b84c5491cecab752d84f976fd6d1631c769 |\n\nTo check: `sorted(task_ids, key=lambda t: hashlib.sha256((\"arc2-v13-pilot-20261008:\" + t).encode()).hexdigest())[:8]`, where `task_ids` are the public evaluation ids from the competition's data files.\n\nThe salt string keeps `13`, the version number of the publisher's pilot notebook. The string is kept verbatim because the hashes above depend on it.\n\n## How it was produced\n\n1. **Panel.** As above.\n2. **Solver.** The recipe's solver cells ran on 4 NVIDIA L4 GPUs, one rank per GPU, with Unsloth 2025.9.7 on Transformers 4.55.4 and PyTorch 2.8.0, the versions in the log banners. The recipe loads the Kaggle model `sorokin/qwen3_4b_grids15_sft139` (see Provenance). Each task trained its LoRA adapter for 128 steps (the log shows `global_step=128` for all eight tasks). Each task then decoded its test outputs in batches of four subkeys with beam search. Each decoded grid was re-scored on eight augmented queries. The solver wrote each pool file when its decode batch ended. The harness changes were a fixed panel selector, timestamped logging, and separate selection and evaluation processes.\n3. **Selection.** A separate process ran both selectors on the saved pools without opening the public answers. `data__freeze_manifest.json` records `solutions_opened: false`. The frozen predictions and alternatives carry SHA-256 hashes (see Predictions and Selection below).\n4. **Evaluation.** A separate evaluator read the public answers after the freeze and wrote the per-output scoring (`data__evaluation.json`, unmodified).\n5. **Analysis.** The restricted reader (`code__pool_to_jsonl.py`) converted the pickles to JSON. The timelines come from the solver log.\n\n### Stop rule and clock\n\nBefore each decode batch, the recipe stops a task if its own spend exceeds 1200 s, or if the wall clock has passed the global end time. Inside a batch, the search also stops at the global end time. The per-task cap is therefore overrun by at most one batch. The global end time is the setup start plus 1800 s (the solver soft end).\n\nWhen the solver stops a task it logs a `timeout after` line. This card calls that line the stop line. The solver log does not record the global end time, so we bracket it from the log's own unix timestamps:\n\n- The solver stage started 25.08 s after setup and ran for 1795.49 s (`data__run_summary.json`). It cannot end before its last log line, which was printed at unix 1791473878.07. That places the global end at or after unix 1791473857.50, which is 20.57 s before the last line.\n- The stop line for `a32d8b75` (unix 1791473861.075) is printed only if the wall clock had passed the global end, so the global end is before that time.\n\nThe global end therefore lies in [unix 1791473857.50, 1791473861.08), 17.0 to 20.6 s before the solver's last log line. This gives four consequences:\n\n- `221dfab4` stopped at unix 1791473567.8, about 290 s before the global end. Its spend was 1208.8 s, above the cap, so its cause is the **per-task cap**.\n- `a32d8b75` (spend 1029.3 s) and `cb2d8a2c` (spend 310.2 s) stopped below the cap, so their cause is the **global end time**. They stopped 0 to 3.6 s and 17.0 to 20.6 s after it.\n- The first log line was printed 74 to 77 s after the stage started, so the stage's start-up time is outside the log. Counting that start-up time, the stage ended 0 to 3.6 s after its last log line, which matches its 1795.49 s elapsed time.\n\nThe `data__analysis_extra.json` fields named `global_end_passed_at_break` and `seconds_before_end_estimate` use the end estimate of last line minus 20.57 s. That estimate is the lower edge of the bracket, so those fields agree with it but do not test it. `data__task_summary.csv` states each cause and the unix time of its stop line.\n\n## Selection\n\nCandidates are distinct grids, grouped by grid hash.\n\n- **KGMoN (`score_kgmon`).** The number of samples for the grid, minus the mean of its augmented-query scores. Higher ranks first.\n- **`score_full_probmul_3`.** The sum over the grid's samples of (3 minus beam score), plus the mean over the samples of the sum of (3 minus each augmented-query score). Higher ranks first.\n\nIn this run attempt 1 is the rank-1 grid under KGMoN (12 of 12 outputs) and attempt 2 is its rank-2 grid (9 of 9 outputs with two candidates). Results on the pilot:\n\n- The top-2 sets are identical for 12 of 12 decoded outputs, and the top-1 grids are identical for 12 of 12.\n- Only the ordered top-4 list of `221dfab4_1` differs, at rank 4. KGMoN puts a grid with hash prefix `47ca9b2c` there and `score_full_probmul_3` puts one with prefix `4e63493c`. Neither is correct.\n- In 5 of 12 decoded outputs there are at most two distinct grids, so top-2 agreement is automatic there.\n- The one solved output's correct grid is rank 1 under both selectors.\n\nThe pilot therefore cannot separate the two selectors. Its value is the identical pools and the full ranked lists.\n\n## Predictions and placeholders\n\n`data__predictions.jsonl` holds the final attempts for all 13 outputs. An attempt equal to the placeholder `[[0]]` has `is_placeholder: true`. In this pilot one attempt 1 and four attempt 2 are placeholders (5 of 26 attempts). Scripts that score accuracy must exclude placeholders. There is no separate `has_candidate` field.\n\nThe JSON Lines files `data__predictions.jsonl` and `data__selection_alternatives.jsonl` are conversions of the frozen `predictions.json` and `selection_alternatives.json`. The grids are identical to the frozen JSON: every grid that is not redacted was checked, 26 attempts in `data__predictions.jsonl` and 64 ranked grids in `data__selection_alternatives.jsonl`. The frozen files have SHA-256 values `2c078f47…` and `173c71aa…`, as recorded in `data__freeze_manifest.json`.\n\n## Grids redacted where they equal the public answer\n\nWhere a decoded grid equals the ARC Prize public answer for its test output, the grid is written as `null` and `grid_redacted` is `true`. Its `grid_sha256` is kept. This affects 16 samples, all in the 16 pool files of `45a5af55_0` (one distinct grid), and that output's attempt 1 and its rank-1 entry under both selectors. Checking a redacted grid's hash needs the public ARC answers, which are not included. Other grids are model outputs and are published in full. The redaction keeps the one solved answer from being republished as a grid.\n\n## Limitations\n\n- Eight tasks and 13 outputs, one solved. This is a pilot, not a benchmark. The timing observation that the solved output's correct grid appeared within 600 seconds rests on one output (n = 1).\n- Timings are for L4 GPUs with this recipe and this harness, from one run. We did not measure run-to-run variance.\n- Support counts views that were decoded before a stop. An output with few decoded views cannot reach a high support, so support mixes calibration with how much was decoded. The threshold of 4 of 16 is not calibrated on public data.\n- Weak is defined differently in the two sources: by at most one distinct grid in the pilot pools, and by an attempt-2 placeholder in the third-party public run.\n- The fill calibration is a template. The deep pass was not run in the pilot, so no measurement updates the Beta prior. The public-run counts are a third-party run's, not an official row of this account.\n- Redaction removes one answer grid and its duplicates. The hash keeps the match checkable only for someone with the public answers.\n- The model card of `sorokin/qwen3_4b_grids15_sft139` is empty, as shown on the Kaggle page on 2026-10-10 (not independently re-verified). The data used to fine-tune the model is not documented, so the grids cannot be checked for overlap with any training data. Treat them as unlabelled model outputs.\n\n## Provenance\n\nEach input is listed with its reference, what it provides, and its licence as recorded for this card. The licence column records what each page showed on 2026-10-10. Those statements were not independently re-verified for this revision, and they are labelled that way. The model weights, the recipe's source and the task inputs were not downloaded for this dataset, and none of them is included.\n\n| Input | Reference | What it provides | Licence, as shown on the Kaggle page on 2026-10-10 (not independently re-verified) | Link |\n|---|---|---|---|---|\n| ARC-AGI-2 public evaluation tasks | GitHub repository `arcprize/ARC-AGI-2`; competition `arc-prize-2026-arc-agi-2` | Task ids only. Task inputs and public answers are not included. | Apache-2.0, as shown on the GitHub page on 2026-10-10 (not independently re-verified) | https://github.com/arcprize/ARC-AGI-2 |\n| Model weights | Kaggle model `sorokin/qwen3_4b_grids15_sft139`, variation `Transformers/bfloat16`, version 1. Owner ref `sorokin`; the model page title shows the owner display name `ivan`. | The fine-tuned model that wrote the decoded grids. The placeholder `[[0]]` is the recipe's default, not a model output. Weights are not included. As shown on the Kaggle page on 2026-10-10 (not independently re-verified), the model description is empty, so the fine-tuning data is not documented. | Apache 2.0 | https://www.kaggle.com/models/sorokin/qwen3_4b_grids15_sft139 |\n| Base model named by the model name | Hugging Face `Qwen/Qwen3-4B` | Named by `qwen3_4b` in the model name. The Kaggle page does not state the base model. | apache-2.0, as shown on the Hugging Face page on 2026-10-10 (not independently re-verified) | https://huggingface.co/Qwen/Qwen3-4B |\n| Recipe notebook | Kaggle notebook `koushikrudra/failed-in-aimo`, version 1 (scriptVersionId 312063593) | The solver code: LoRA training, beam decoding, the selectors and the sample schema. Source is not included. | Apache 2.0 | https://www.kaggle.com/code/koushikrudra/failed-in-aimo?scriptVersionId=312063593 |\n| Kernel source | Kaggle notebook `sorokin/pip-install-unsloth-flash-patch` | Attached to the solver run as a kernel source. Source is not included. | Apache 2.0 | https://www.kaggle.com/code/sorokin/pip-install-unsloth-flash-patch |\n| Third-party public run (figures only) | Kaggle notebook `rokaiyasomapti/reproduce-nvarc-2025-results`, version 2, commit run over the 120 public evaluation tasks | The per-output counts in `data__fill_calibration.json` (`public_run`), computed from that run's submission file (sha256 431be759…). This is a third-party run, not an official row of this account. No code or data from the run is included. | Not stated here; no content of the notebook is redistributed | https://www.kaggle.com/code/rokaiyasomapti/reproduce-nvarc-2025-results |\n\nSoftware that the solver run used is in the dependency table under Credits.\n\n**Licence decision.** The Kaggle licence field is `apache-2.0`. The decoded grids are model outputs on ARC-AGI-2 public evaluation tasks, and each model, notebook and task input in the table is recorded above with an Apache-2.0 licence as shown on its page. The code file is the publisher's own code. The third-party public run contributes counts only, which are labelled as third-party, and no code or data from that notebook is redistributed.\n\n**Competition terms.** This card does not restate the ARC Prize 2026 competition rules, and this revision did not re-read them. The dataset contains no task inputs and no public answers. Users who reuse the grids should read the competition terms themselves.\n\n## Credits\n\n### Dependencies\n\nEach component below is imported by the shipped code, appears in the solver log banners of the measured run, or is used by the README snippets. Versions are those recorded in this dataset, where recorded. Licences are the projects' upstream licences.\n\n| Component | Where it appears | Version recorded | Licence |\n|---|---|---|---|\n| NumPy | `code__pool_to_jsonl.py` (imported); README snippets | not recorded | BSD-3-Clause |\n| pandas | README snippets | not recorded | BSD-3-Clause |\n| PyTorch | solver run (log banner) | 2.8.0 | BSD-3-Clause |\n| Transformers | solver run (log banner) | 4.55.4 | Apache-2.0 |\n| Unsloth | solver run (log banner) | 2025.9.7 | Apache-2.0 |\n| Triton | solver run (log banner) | 3.4.0 | MIT (upstream licence; not independently re-verified) |\n| xFormers | solver run (log banner) | 0.0.32.post2 | BSD-3-Clause (upstream licence; not independently re-verified) |\n\n### People and sources\n\n- **Recipe.** `koushikrudra` (Kaggle), for the notebook `koushikrudra/failed-in-aimo`.\n- **Model and kernel.** `sorokin` (Kaggle), for the model `sorokin/qwen3_4b_grids15_sft139` (the model page title shows the owner display name `ivan`) and the kernel `sorokin/pip-install-unsloth-flash-patch`.\n- **Third-party public run.** `rokaiyasomapti` (Kaggle), for the notebook `rokaiyasomapti/reproduce-nvarc-2025-results`, whose version 2 commit run supplies the public-run counts in `data__fill_calibration.json`.\n- **Tasks.** The ARC Prize Foundation, for ARC-AGI-2 and the ARC Prize 2026 competition.\n- **Base model.** The Qwen team, for the Qwen3 model family named in the model name.\n- **Libraries.** The authors of the packages in the dependency table.\n- **Publisher.** `prvsiyan` (Kaggle account).\n\n## Licence\n\n- **Dataset licence (Kaggle field):** `apache-2.0`. The same licence is in `LICENSE`, and `NOTICE.md` states the per-file terms and the third-party inputs. This dataset contains no content offered under another licence.\n- **Per-file terms.** Every file in this dataset is released under Apache-2.0 by the publisher, including the tables, records and documentation. `NOTICE.md` lists the terms file by file. The code file is the publisher's own code. The licence of each third-party input is in the Provenance table, and the licence of each dependency is in the Credits table.\n- **Third-party text.** `data__solver_log.jsonl` holds the run's console lines, including banner text from the training libraries. Those lines are copied from the log. The libraries themselves are not redistributed.\n- **Not included.** ARC-AGI-2 task inputs, public answers, model weights, the recipe's source, the kernel source, the pool pickles, the third-party run's code and data, and any credentials.\n\n## How to cite\n\n> prvsiyan (2026). *ARC-AGI-2 TTT Candidate Pools: an 8-task pilot* [Dataset]. Kaggle. Candidate pools from the recipe `koushikrudra/failed-in-aimo` (version 1) on ARC-AGI-2 public evaluation tasks.\n\nPlease also credit `koushikrudra/failed-in-aimo`, the model `sorokin/qwen3_4b_grids15_sft139`, the third-party public run `rokaiyasomapti/reproduce-nvarc-2025-results` (for its counts), and the ARC Prize 2026 competition.\n\n## Changelog\n\n- **v1, 2026-10-10:** first release. Frozen pilot outputs (pilot notebook version 13), a flat sample table, stop rule and clock bracket, selection comparison, fill calibration and analysis. Before upload the files were flattened to the top level (`data__`, `code__` prefixes), every column was listed, and the licence was set to `apache-2.0` with each input's licence documented.\n- **v1, revision 3, 2026-10-10:** the third-party public run is named and attributed; each input's licence is labelled as shown on its page (not independently re-verified); dependency credits with licences were added; the attribution to a recipe family and the statements about the competition rules were removed; the projections in the fill calibration file were removed; two files were renamed (`data__analysis_extra.json`, `data__fill_calibration.json`); the schema tags of the fill calibration and run summary files were changed. The byte-identical records keep their original tags.\n",
+  "isPrivate": false,
+  "licenses": [
+    {
+      "name": "apache-2.0"
+    }
+  ],
+  "keywords": [
+    "artificial intelligence",
+    "deep learning",
+    "machine learning",
+    "nlp",
+    "json",
+    "csv"
+  ],
+  "resources": [
+    {
+      "path": "LICENSE",
+      "description": "Apache License 2.0 text, with the copyright line for the dataset's own artefacts"
+    },
+    {
+      "path": "NOTICE.md",
+      "description": "Per-file terms, the licence of each third-party input with its link, and what is not included"
+    },
+    {
+      "path": "README.md",
+      "description": "Dataset card: the same text as the Kaggle description, with glossary, stop rule and file descriptions"
+    },
+    {
+      "path": "code__pool_to_jsonl.py",
+      "description": "Restricted pickle reader and converter (provenance): reproduces candidate_pools.jsonl from the pool pickles, the index and the public answers"
+    },
+    {
+      "path": "data__analysis_extra.json",
+      "description": "Analysis output: per-task timelines, per-pool-file rows, first-seen times and the end-time estimate (byte-identical to its source; file renamed)"
+    },
+    {
+      "path": "data__candidate_pool_samples.csv",
+      "description": "Flat table: one row per decoded grid (94 rows) with score, grid as JSON text, hash and redaction flags",
+      "schema": {
+        "fields": [
+          {
+            "name": "pool_file",
+            "type": "string",
+            "description": "Pool file name: the output_id, then the geometric chain, then permute and ten colour digits, then ex and the example-order digits, joined by dots"
+          },
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "rank_in_file",
+            "type": "integer",
+            "description": "0-based position of the sample in its pool file"
+          },
+          {
+            "name": "beam_score",
+            "type": "number",
+            "description": "Recipe beam score for the decoded grid, unitless; lower is more confident"
+          },
+          {
+            "name": "score_aug_1",
+            "type": "number",
+            "description": "Augmented-query score 1 of 8 for the grid, unitless; lower is more confident"
+          },
+          {
+            "name": "score_aug_2",
+            "type": "number",
+            "description": "Augmented-query score 2 of 8, unitless"
+          },
+          {
+            "name": "score_aug_3",
+            "type": "number",
+            "description": "Augmented-query score 3 of 8, unitless"
+          },
+          {
+            "name": "score_aug_4",
+            "type": "number",
+            "description": "Augmented-query score 4 of 8, unitless"
+          },
+          {
+            "name": "score_aug_5",
+            "type": "number",
+            "description": "Augmented-query score 5 of 8, unitless"
+          },
+          {
+            "name": "score_aug_6",
+            "type": "number",
+            "description": "Augmented-query score 6 of 8, unitless"
+          },
+          {
+            "name": "score_aug_7",
+            "type": "number",
+            "description": "Augmented-query score 7 of 8, unitless"
+          },
+          {
+            "name": "score_aug_8",
+            "type": "number",
+            "description": "Augmented-query score 8 of 8, unitless"
+          },
+          {
+            "name": "grid_rows",
+            "type": "integer",
+            "description": "Grid height in cells"
+          },
+          {
+            "name": "grid_cols",
+            "type": "integer",
+            "description": "Grid width in cells"
+          },
+          {
+            "name": "grid",
+            "type": "string",
+            "description": "JSON text of the grid, a list of rows of digits 0 to 9; blank when redacted"
+          },
+          {
+            "name": "grid_sha256",
+            "type": "string",
+            "description": "SHA-256 of the compact JSON of the grid (kept when redacted)"
+          },
+          {
+            "name": "matches_public_solution",
+            "type": "boolean",
+            "description": "The grid equals the ARC public answer for this output"
+          },
+          {
+            "name": "grid_redacted",
+            "type": "boolean",
+            "description": "The grid is blank because it equals the public answer"
+          },
+          {
+            "name": "written_by_batch_end_after_task_start_s",
+            "type": "number",
+            "description": "Seconds after task start when the pool file was written (end of its decode batch)"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__candidate_pools.jsonl",
+      "description": "Candidate pools: one JSON object per pool file (79), with every decoded sample nested in samples",
+      "schema": {
+        "fields": [
+          {
+            "name": "pool_file",
+            "type": "string",
+            "description": "Pool file name as written by the recipe"
+          },
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "geometric_chain",
+            "type": "string",
+            "description": "Dot-separated geometric ops (transpose, rot90) before decoding; empty means identity"
+          },
+          {
+            "name": "colour_permutation",
+            "type": "string",
+            "description": "Ten digits naming the colour permutation (recipe naming)"
+          },
+          {
+            "name": "example_order",
+            "type": "string",
+            "description": "Digits naming the sequence of training examples (recipe naming)"
+          },
+          {
+            "name": "written_by_batch_end_after_task_start_s",
+            "type": "number",
+            "description": "Seconds after task start when the file was written (end of its decode batch)"
+          },
+          {
+            "name": "sample_count",
+            "type": "integer",
+            "description": "Number of decoded samples in the file"
+          },
+          {
+            "name": "samples",
+            "type": "array",
+            "description": "One object per decoded sample: rank_in_file (integer), beam_score (number), score_aug (array of 8 numbers), grid_rows, grid_cols (integer), grid (array of rows of integers, or null when redacted), grid_sha256 (string), matches_public_solution and grid_redacted (boolean)"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__candidate_pools_index.csv",
+      "description": "One row per pool file (79): subkey parts, sample count, distinct grids, truth flag and batch-end time",
+      "schema": {
+        "fields": [
+          {
+            "name": "pool_file",
+            "type": "string",
+            "description": "Pool file name as written by the recipe"
+          },
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "geometric_chain",
+            "type": "string",
+            "description": "Dot-separated geometric ops before decoding; empty means identity"
+          },
+          {
+            "name": "colour_permutation",
+            "type": "string",
+            "description": "Ten digits naming the colour permutation (recipe naming)"
+          },
+          {
+            "name": "example_order",
+            "type": "string",
+            "description": "Digits naming the sequence of training examples (recipe naming)"
+          },
+          {
+            "name": "sample_count",
+            "type": "integer",
+            "description": "Number of decoded samples in the file"
+          },
+          {
+            "name": "distinct_grids_in_file",
+            "type": "integer",
+            "description": "Number of distinct grid hashes in the file"
+          },
+          {
+            "name": "truth_in_file",
+            "type": "boolean",
+            "description": "The file contains the ARC public answer"
+          },
+          {
+            "name": "written_by_batch_end_after_task_start_s",
+            "type": "number",
+            "description": "Seconds after task start when the file was written; blank if not recorded"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__decode_batches.csv",
+      "description": "One row per decode batch (42) with its start, end and duration after task start",
+      "schema": {
+        "fields": [
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "worker_rank",
+            "type": "integer",
+            "description": "GPU rank (0 to 3) that ran the task"
+          },
+          {
+            "name": "batch_index",
+            "type": "integer",
+            "description": "Decode batch number within the task, 1-based"
+          },
+          {
+            "name": "subkeys_in_batch",
+            "type": "integer",
+            "description": "Subkeys decoded in the batch; 4 in every batch of this run"
+          },
+          {
+            "name": "start_after_task_start_seconds",
+            "type": "number",
+            "description": "Batch start, seconds after task start"
+          },
+          {
+            "name": "end_after_task_start_seconds",
+            "type": "number",
+            "description": "Batch end, seconds after task start"
+          },
+          {
+            "name": "duration_seconds",
+            "type": "number",
+            "description": "Batch duration in seconds"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__evaluation.json",
+      "description": "Evaluator output: per-task and per-output scoring, unmodified"
+    },
+    {
+      "path": "data__fill_calibration.json",
+      "description": "Fill calibration: weak-output counts, second-slot hit rate and Beta prior for a fill pass; public-run counts come from a third-party run named in the README"
+    },
+    {
+      "path": "data__freeze_manifest.json",
+      "description": "Freeze record: SHA-256 of the frozen predictions and alternatives, panel, freeze time, and whether solutions were opened (unmodified)"
+    },
+    {
+      "path": "data__outputs.csv",
+      "description": "One row per test output (13): pool size, distinct candidates, solved flags, selector ranks, first-seen time, weak flag, support views, attempt shapes and timing",
+      "schema": {
+        "fields": [
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "pool_files",
+            "type": "integer",
+            "description": "Pool files for this output (0 to 16)"
+          },
+          {
+            "name": "pool_samples",
+            "type": "integer",
+            "description": "Decoded samples for this output"
+          },
+          {
+            "name": "distinct_candidates",
+            "type": "integer",
+            "description": "Distinct decoded grids; blank if nothing was decoded"
+          },
+          {
+            "name": "truth_in_pool",
+            "type": "boolean",
+            "description": "The ARC public answer is in the pool"
+          },
+          {
+            "name": "solved",
+            "type": "boolean",
+            "description": "Exact attempt 1 or attempt 2"
+          },
+          {
+            "name": "exact_attempt_1",
+            "type": "boolean",
+            "description": "Attempt 1 equals the ARC public answer"
+          },
+          {
+            "name": "exact_attempt_2",
+            "type": "boolean",
+            "description": "Attempt 2 equals the ARC public answer"
+          },
+          {
+            "name": "truth_rank_kgmon",
+            "type": "integer",
+            "description": "Rank of the public answer under KGMoN (score_kgmon); blank if absent"
+          },
+          {
+            "name": "truth_rank_probmul",
+            "type": "integer",
+            "description": "Rank of the public answer under score_full_probmul_3; blank if absent"
+          },
+          {
+            "name": "first_seen_seconds_after_task_start",
+            "type": "number",
+            "description": "Seconds after task start when the public answer first appeared in a pool; blank if never"
+          },
+          {
+            "name": "weak_output",
+            "type": "boolean",
+            "description": "At most one distinct grid in the main pool, so the second slot is empty or duplicated"
+          },
+          {
+            "name": "top1_support_views",
+            "type": "integer",
+            "description": "Number of pool files (of 16 planned views) that contain the top-1 grid"
+          },
+          {
+            "name": "views_per_output",
+            "type": "integer",
+            "description": "Planned views per output, always 16"
+          },
+          {
+            "name": "attempt_1_rows",
+            "type": "integer",
+            "description": "Attempt 1 grid height"
+          },
+          {
+            "name": "attempt_1_cols",
+            "type": "integer",
+            "description": "Attempt 1 grid width"
+          },
+          {
+            "name": "attempt_1_is_placeholder",
+            "type": "boolean",
+            "description": "Attempt 1 is the placeholder [[0]]"
+          },
+          {
+            "name": "attempt_1_redacted",
+            "type": "boolean",
+            "description": "Attempt 1 grid is redacted"
+          },
+          {
+            "name": "attempt_2_rows",
+            "type": "integer",
+            "description": "Attempt 2 grid height"
+          },
+          {
+            "name": "attempt_2_cols",
+            "type": "integer",
+            "description": "Attempt 2 grid width"
+          },
+          {
+            "name": "attempt_2_is_placeholder",
+            "type": "boolean",
+            "description": "Attempt 2 is the placeholder [[0]]"
+          },
+          {
+            "name": "attempt_2_redacted",
+            "type": "boolean",
+            "description": "Attempt 2 grid is redacted"
+          },
+          {
+            "name": "task_seconds",
+            "type": "number",
+            "description": "Wall time of the task in seconds, repeated for each of its outputs"
+          },
+          {
+            "name": "hit_task_timeout",
+            "type": "boolean",
+            "description": "The task stopped at a stop line"
+          },
+          {
+            "name": "panel_position",
+            "type": "integer",
+            "description": "Order of the task in the panel, 1 to 8"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__predictions.jsonl",
+      "description": "Final attempts for the 13 outputs (JSON Lines form of the frozen predictions.json, same grids)",
+      "schema": {
+        "fields": [
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "attempt_1",
+            "type": "object",
+            "description": "Attempt 1: grid_rows, grid_cols (integer), grid (array of rows, or null when redacted), grid_sha256 (string), matches_public_solution, grid_redacted, is_placeholder (boolean)"
+          },
+          {
+            "name": "attempt_2",
+            "type": "object",
+            "description": "Attempt 2, same keys as attempt_1"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__run_summary.json",
+      "description": "Run summary: stage statuses and elapsed times, deadlines from setup, hardware and note (status labels plain)"
+    },
+    {
+      "path": "data__selection_alternatives.jsonl",
+      "description": "Top-4 candidates under KGMoN and score_full_probmul_3 for the 12 decoded outputs (JSON Lines form of the frozen file)",
+      "schema": {
+        "fields": [
+          {
+            "name": "output_id",
+            "type": "string",
+            "description": "Test output id: task_id plus test_output_index"
+          },
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "test_output_index",
+            "type": "integer",
+            "description": "Which test input of the task, 0 or 1"
+          },
+          {
+            "name": "distinct_candidates",
+            "type": "integer",
+            "description": "Distinct decoded grids for the output"
+          },
+          {
+            "name": "kgmon_top4",
+            "type": "array",
+            "description": "Up to four candidates ranked by KGMoN; each has rank (integer, 1 best), grid_rows, grid_cols, grid, grid_sha256, matches_public_solution, grid_redacted"
+          },
+          {
+            "name": "probmul_top4",
+            "type": "array",
+            "description": "Up to four candidates ranked by score_full_probmul_3; same keys as kgmon_top4"
+          },
+          {
+            "name": "kgmon_top2_set_equals_probmul_top2_set",
+            "type": "boolean",
+            "description": "The two selectors pick the same top-2 set"
+          },
+          {
+            "name": "kgmon_top1_equals_probmul_top1",
+            "type": "boolean",
+            "description": "The two selectors pick the same top-1"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__solver_log.jsonl",
+      "description": "Solver log: 183 lines with unix time, seconds since the first line, GPU rank and raw text",
+      "schema": {
+        "fields": [
+          {
+            "name": "seconds_since_first_line",
+            "type": "number",
+            "description": "Seconds since the first solver log line"
+          },
+          {
+            "name": "unix_time",
+            "type": "number",
+            "description": "Unix time of the log line"
+          },
+          {
+            "name": "rank",
+            "type": "integer",
+            "description": "GPU rank 0 to 3, or null for library banners"
+          },
+          {
+            "name": "text",
+            "type": "string",
+            "description": "Raw log line"
+          }
+        ]
+      }
+    },
+    {
+      "path": "data__task_summary.csv",
+      "description": "One row per panel task (8): timing, decode batches, score and stop cause with its unix break time",
+      "schema": {
+        "fields": [
+          {
+            "name": "task_id",
+            "type": "string",
+            "description": "ARC-AGI-2 public evaluation task id"
+          },
+          {
+            "name": "panel_position",
+            "type": "integer",
+            "description": "Order of the task in the panel, 1 to 8"
+          },
+          {
+            "name": "worker_rank",
+            "type": "integer",
+            "description": "GPU rank (0 to 3) that ran the task"
+          },
+          {
+            "name": "outputs",
+            "type": "integer",
+            "description": "Test outputs in the task"
+          },
+          {
+            "name": "reached",
+            "type": "boolean",
+            "description": "The task ran"
+          },
+          {
+            "name": "task_score",
+            "type": "number",
+            "description": "Evaluator score for the task, 0 to 1"
+          },
+          {
+            "name": "task_seconds",
+            "type": "number",
+            "description": "Wall time of the task in seconds"
+          },
+          {
+            "name": "train_seconds",
+            "type": "number",
+            "description": "LoRA training time of the task in seconds"
+          },
+          {
+            "name": "decode_batches",
+            "type": "integer",
+            "description": "Decode batches run"
+          },
+          {
+            "name": "hit_task_timeout",
+            "type": "boolean",
+            "description": "The task stopped at a stop line"
+          },
+          {
+            "name": "timeout_spend_seconds",
+            "type": "number",
+            "description": "Solver time at the stop line in seconds; blank if no stop"
+          },
+          {
+            "name": "timeout_cause",
+            "type": "string",
+            "description": "Blank if no stop; 'per-task cap (spend above 1200 s)' or 'global end time (spend below 1200 s)'"
+          },
+          {
+            "name": "break_unix_time",
+            "type": "number",
+            "description": "Unix time of the stop line in the solver log; blank if no stop"
+          }
+        ]
+      }
+    },
+    {
+      "path": "MANIFEST.json",
+      "description": "SHA-256 and size of every file in this folder except MANIFEST.json itself"
+    }
+  ]
+}

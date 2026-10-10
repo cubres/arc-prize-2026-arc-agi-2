@@ -1,0 +1,103 @@
+{
+  "schema": "arc-agi-2-candidate-pool-study-manifest-v1",
+  "note": "Every file in this upload folder except MANIFEST.json itself. Hashes are SHA-256 of the exact bytes.",
+  "file_count": 19,
+  "total_bytes": 596933,
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 11356,
+      "sha256": "d822ba558aa44c607537c60eaa790a4e1aa722303117cfdb1bd5af5708cdbb3c"
+    },
+    {
+      "path": "NOTICE.md",
+      "bytes": 3846,
+      "sha256": "5edbc5ef7e52de7c851a90147f553063c0e519b0c116dd247325cb74acc1ae02"
+    },
+    {
+      "path": "README.md",
+      "bytes": 38336,
+      "sha256": "f1ccd5a9bfc38555bb5e5fae808de255d6b2ccca64b68c56409545aa94dfcb91"
+    },
+    {
+      "path": "code__pool_to_jsonl.py",
+      "bytes": 6907,
+      "sha256": "45a02485a1fcdc2386cbe0bdb74ac80935c11733fd294d8eec1cf0378878bc90"
+    },
+    {
+      "path": "data__analysis_extra.json",
+      "bytes": 23091,
+      "sha256": "c260836b9e831091b4c036f5bee0549f36fdca97eb838b0de789f394270a582e"
+    },
+    {
+      "path": "data__candidate_pool_samples.csv",
+      "bytes": 125826,
+      "sha256": "f3f5521f8a81deaac7481dbb94d74b25834dd275f0729e372d4f5aa53a6cd6a8"
+    },
+    {
+      "path": "data__candidate_pools.jsonl",
+      "bytes": 154366,
+      "sha256": "8dbb71dfa5c5bc8cdbdfe2ec95f63791574d0853e531df4de94bf17edcb3214d"
+    },
+    {
+      "path": "data__candidate_pools_index.csv",
+      "bytes": 9254,
+      "sha256": "3e7cffdb39bca0522f226e3e7ed516a7ef4322937e9e887910a598e6037a6ee4"
+    },
+    {
+      "path": "data__decode_batches.csv",
+      "bytes": 1533,
+      "sha256": "28dc84c03c8c20fa0e12f7af6caa3e73ab8a3be815aafe1a3bcfb7363c23e7dc"
+    },
+    {
+      "path": "data__evaluation.json",
+      "bytes": 5027,
+      "sha256": "2720a8bdd4f676d69171deeafbcb63751483dfc1a0f8bc809684fead9335f2c3"
+    },
+    {
+      "path": "data__fill_calibration.json",
+      "bytes": 5013,
+      "sha256": "b0cc6bd721d596c33040cb8399daa168dca295dd475c8e6511adf643c48c91fe"
+    },
+    {
+      "path": "data__freeze_manifest.json",
+      "bytes": 513,
+      "sha256": "ac6414178231261511a28bef9d67bd14969040a98cea613aff14bb0f8416f3db"
+    },
+    {
+      "path": "data__outputs.csv",
+      "bytes": 1958,
+      "sha256": "272b1e9f3d623911ec93c45ff30aa7c657266cdec34ffa6563a1203584992e82"
+    },
+    {
+      "path": "data__predictions.jsonl",
+      "bytes": 28598,
+      "sha256": "0a59f0d1823acc1877fbd40549c3187abd275ec4519cbb3d43d3c5fecbafd65a"
+    },
+    {
+      "path": "data__run_summary.json",
+      "bytes": 1076,
+      "sha256": "80e49a30d55bc70973e1f38f56c1ebb836ad320ddbba5d1e70740fd4ffa2b8f3"
+    },
+    {
+      "path": "data__selection_alternatives.jsonl",
+      "bytes": 83541,
+      "sha256": "4a47a770811db137dbcc7761ad370696950c89b04881904a55ac652dda905787"
+    },
+    {
+      "path": "data__solver_log.jsonl",
+      "bytes": 34436,
+      "sha256": "cb69684a3cd6d03bc463597b6125744cad6e3a418550bc7c45c815e2a94cc629"
+    },
+    {
+      "path": "data__task_summary.csv",
+      "bytes": 720,
+      "sha256": "7ddec45440436c3864cc78f8d544a82758dd77bef7dabc06a72232831ce99ebd"
+    },
+    {
+      "path": "dataset-metadata.json",
+      "bytes": 61536,
+      "sha256": "b0a900aa4323f158b84782b9044c8708fd6cb509afb9822c83ae34c88d0951d4"
+    }
+  ]
+}
