@@ -1,0 +1,37 @@
+{
+  "all_output_task_solves": 0,
+  "capped_tasks": 2,
+  "challenges_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+  "cpu_seconds": 19.824175,
+  "fractional_task_credit_sum": 0.0,
+  "integrated_into_native_solver": false,
+  "limitations": [
+    "Public evaluation is an exposed development panel, including historical human/model/solver exposure.",
+    "Leave-one-demonstration-out exactness is a grammar filter, not independent task validation.",
+    "Same-shape grammar only; at most two attempts per query; CPU caps are censoring, not proof of no fitting program.",
+    "Fill-only adapter preserves its supplied main grids, not the stronger 31.11 recipe across different execution versions."
+  ],
+  "official_score": null,
+  "outputs_solved": 0,
+  "outputs_with_candidate": 0,
+  "prediction_seal_sha256": "be572c2ecbc65ba46693e411fb7f8a45c4eca14ac9dc06b9a5f424fecf5935c3",
+  "predictions_sha256": "bf98be7de200515120f2f5da79dbec8ce6a1582b8262b93aaae733a31c0b1dbf",
+  "promotion": "HOLD_PENDING_NATIVE_BASELINE_COMPLEMENTARITY_AND_FROZEN_UNSEEN_PANEL",
+  "protocol_sha256": "f6e8c5723bc7e899f25803219f46bcdfdecac507c2f18377e909c0a931c9ddab",
+  "same_shape_eligible_tasks": 81,
+  "schema": "arc2-spatial-program-development-result-v1",
+  "shape_change_ineligible_tasks": 39,
+  "solutions_sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1",
+  "source_sha256": {
+    "run_screen.py": "1d09dbac3a1497f11cfbcbf8d287b1f1be4b00db9c6f5bd6abd5030a415ab91b",
+    "spatial_program.py": "1bcd6760431629afa1f8feaa066b82569656d1b9224a809668b065b1ab4296be",
+    "synthetic_checks.py": "3fc0a6ce740e8baf237e00c28d0d651b05c0124505c5cf3a8d2bf6b83934b07e"
+  },
+  "status": "COMPLETE_PUBLIC_DEVELOPMENT_ONLY",
+  "synthetic_control_count": 31,
+  "synthetic_controls_status": "PASS_INVENTED_CONTROLS",
+  "tasks": 120,
+  "tasks_with_candidate": 0,
+  "test_outputs": 172,
+  "wall_seconds": 19.85458104099962
+}

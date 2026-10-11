@@ -1,0 +1,68 @@
+{
+  "authors": "Original work by cubres campaign; written by Codex, not adapted from third-party code.",
+  "code_license": "MIT",
+  "created_utc": "2026-10-11T17:00:21.673932+00:00",
+  "data": "User-authorized local Kaggle ARC-AGI-2 public evaluation challenge/solutions, no grids or answers redistributed.",
+  "exact_official_rows": {
+    "56951295": {
+      "date": "2026-10-08T11:23:48.547Z",
+      "fileName": "submission.json",
+      "publicScore": "31.11",
+      "ref": 56951295,
+      "status": "COMPLETE",
+      "submittedBy": "prvsiyan",
+      "url": "/code/prvsiyan/zz-gpuchk-845399?scriptVersionId=356375763"
+    },
+    "57016777": {
+      "csv_or_json_sha256": "51eb23f10060a05b2f9dad273d9871cf8dddef978e53ac9d34341938dd1c7c41",
+      "date": "2026-10-09T17:56:28.753Z",
+      "fileName": "submission.json",
+      "publicScore": "28.47",
+      "ref": 57016777,
+      "status": "COMPLETE",
+      "submittedBy": "prvsiyan",
+      "url": "/code/prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab?scriptVersionId=356491928"
+    },
+    "57040312": {
+      "csv_or_json_sha256": "ddc0c7ee0068e13f4e45b683b7af7419300bdc0be6b77a66cace81a98a9d221b",
+      "date": "2026-10-10T11:04:08.887Z",
+      "fileName": "submission.json",
+      "interpretation": "UNKNOWN_OMITTED_STATUS_AND_SCORE",
+      "ref": 57040312,
+      "submittedBy": "prvsiyan",
+      "url": "/code/prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab?scriptVersionId=357018998"
+    }
+  },
+  "native_runs": 0,
+  "official_raw_sha256": "6831f8d5cc595669b190a40554c582bb6ba82d82e9548bac5bbae87b1a527333",
+  "official_snapshot_observed_utc": "2026-10-11T16:52:19.428510+00:00",
+  "prior_experiment": "Oct9 exact-fit symbolic supplement, 0/120 task fits, used as a negative comparator only; no exact numeric paired rerun claimed.",
+  "public_contains_no": [
+    "competition grids",
+    "query targets",
+    "query predictions",
+    "third-party notebook cells",
+    "checkpoints",
+    "credentials",
+    "signed URLs",
+    "user filesystem paths"
+  ],
+  "results_private_complete_sha256": "ece1c9f6489d2f6809c5d45193d3945ee9523e8daa1f1618124a42ae48c4d897",
+  "root_publication_required": true,
+  "schema": "arc2-spatial-program-provenance-v1",
+  "sealed_predictions_sha256": "bf98be7de200515120f2f5da79dbec8ce6a1582b8262b93aaae733a31c0b1dbf",
+  "source_and_data_pins": {
+    "run_screen.py": "1d09dbac3a1497f11cfbcbf8d287b1f1be4b00db9c6f5bd6abd5030a415ab91b",
+    "spatial_program.py": "1bcd6760431629afa1f8feaa066b82569656d1b9224a809668b065b1ab4296be",
+    "synthetic_checks.py": "3fc0a6ce740e8baf237e00c28d0d651b05c0124505c5cf3a8d2bf6b83934b07e"
+  },
+  "source_mutations_outside_fresh_directory": 0,
+  "sources_read_not_redistributed": {
+    "recipe_text": "bc85b5c03e9f49667af79099010de1efa12e366cc0170a8d70b36792011ed685",
+    "v13_result": "34144be9212005795d9d7bb9c52a96c14b7c5d6025a750fce7f2818077215941",
+    "v19_candidate": "808506695fa7f7725b51228df5b595d38eaadf217f3eaa153c4e8bce8563c3d1",
+    "v20_deep_helper": "57e5c99b37a5e2d5a6470da08e797843989581062fc7fe45f70d4c8993c719df",
+    "v22_plan": "2489ae7e16fbf54bc1e12b29101e61f17416af5fd449c7a12ccd2ac57e80ba05"
+  },
+  "submissions": 0
+}

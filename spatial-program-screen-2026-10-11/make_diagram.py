@@ -1,0 +1,59 @@
+"""Render an original SVG from measured aggregate results. MIT."""
+import html
+import json
+import pathlib
+
+
+def render(summary):
+    values = {k: summary[k] for k in ("tasks", "test_outputs", "tasks_with_candidate",
+              "outputs_solved", "capped_tasks", "cpu_seconds", "synthetic_control_count")}
+    if (values["tasks"] != 120 or values["test_outputs"] != 172
+            or values["tasks_with_candidate"] != 0 or values["outputs_solved"] != 0
+            or summary["same_shape_eligible_tasks"] != 81
+            or summary["shape_change_ineligible_tasks"] != 39):
+        raise ValueError("This version's visual layout is bound to the measured negative study")
+    esc = lambda x: html.escape(str(x))
+    return '''<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="980" viewBox="0 0 1400 980">
+<rect width="1400" height="980" fill="#0b1725"/>
+<style>text{font-family:system-ui,-apple-system,sans-serif;fill:#ebf2fa}.title{font-size:42px;font-weight:750}.sub{font-size:23px;fill:#a6bad0}.label{font-size:21px}.big{font-size:48px;font-weight:750}.small{font-size:18px;fill:#a6bad0}.box{fill:#142a40;stroke:#39516b;stroke-width:2}.line{stroke:#8ab4d6;stroke-width:3;fill:none}</style>
+<text x="70" y="82" class="title">Spatial rules, measured honestly</text>
+<text x="70" y="124" class="sub">A frozen CPU supplement found no candidates on the public ARC2 panel.</text>
+<rect x="70" y="174" width="390" height="174" rx="20" class="box"/>
+<text x="98" y="217" class="label">Public development tasks</text>
+<text x="98" y="284" class="big">''' + esc(values["tasks"]) + '''</text>
+<text x="192" y="280" class="small">172 query outputs • exposed panel</text>
+<rect x="505" y="174" width="390" height="174" rx="20" class="box"/>
+<text x="533" y="217" class="label">Tasks with a candidate / solved</text>
+<text x="533" y="284" class="big">''' + esc(values["tasks_with_candidate"]) + ''' / 0</text>
+<text x="705" y="280" class="small">No overlay benefit</text>
+<rect x="940" y="174" width="390" height="174" rx="20" class="box"/>
+<text x="968" y="217" class="label">Measured CPU time</text>
+<text x="968" y="284" class="big">''' + esc(round(values["cpu_seconds"], 3)) + ''' s</text>
+<text x="968" y="321" class="small">''' + esc(values["capped_tasks"]) + ''' censored tasks • 0.75 s cap each</text>
+<text x="70" y="412" class="sub">The decision contract</text>
+<rect x="70" y="450" width="280" height="148" rx="18" class="box"/>
+<text x="94" y="491" class="label">Demo inputs + outputs</text><text x="94" y="529" class="small">47 spatial cell features</text><text x="94" y="560" class="small">Same-shape transformations</text>
+<path d="M355 523 H405" class="line"/><path d="M392 513 L405 523 L392 533" class="line"/>
+<rect x="410" y="450" width="280" height="148" rx="18" class="box"/>
+<text x="434" y="491" class="label">Fit a small tree</text><text x="434" y="529" class="small">Exact full-demo fit</text><text x="434" y="560" class="small">Exact leave-one-demo-out fit</text>
+<path d="M695 523 H745" class="line"/><path d="M732 513 L745 523 L732 533" class="line"/>
+<rect x="750" y="450" width="260" height="148" rx="18" class="box"/>
+<text x="774" y="491" class="label">Seal query predictions</text><text x="774" y="529" class="small">No test outputs accepted</text><text x="774" y="560" class="small">At most two distinct grids</text>
+<path d="M1015 523 H1065" class="line"/><path d="M1052 513 L1065 523 L1052 533" class="line"/>
+<rect x="1070" y="450" width="260" height="148" rx="18" class="box"/>
+<text x="1094" y="491" class="label">Open solutions later</text><text x="1094" y="529" class="small">Separate evaluation process</text><text x="1094" y="560" class="small">Zero exact solved outputs</text>
+<rect x="70" y="650" width="1260" height="240" rx="20" fill="#1c3343" stroke="#71b1bd" stroke-width="2"/>
+<text x="98" y="696" class="label" fill="#9fe4df">An unused answer slot can be filled; a baseline loss cannot be renamed.</text>
+<text x="98" y="740" class="small">Fill-only preserves the supplied main attempts. It does not preserve a different model or seed recipe.</text>
+<text x="98" y="777" class="small">31 invented controls passed. Synthetic correctness is separate from public task coverage and official scores.</text>
+<text x="98" y="814" class="small">39 tasks changed shape. No candidates passed the grammar on the other 81. Two caps limit the negative claim.</text>
+<text x="98" y="851" class="small">No GPU / TPU / network / native job / competition submission. No claim of a hidden-set improvement.</text>
+<text x="70" y="944" class="small">Original cubres experiment • source and prediction hashes in the protocol • MIT • 2026-10-11</text>
+</svg>'''
+
+
+if __name__ == "__main__":
+    here = pathlib.Path(__file__).resolve().parent
+    summary = json.loads((here / "PUBLIC_RESULT_SUMMARY.json").read_text())
+    with (here / "spatial-screen.svg").open("x") as f:
+        f.write(render(summary))
