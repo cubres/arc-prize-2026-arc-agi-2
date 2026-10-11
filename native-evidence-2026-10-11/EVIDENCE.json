@@ -1,0 +1,91 @@
+{
+  "schema": "original-arc2-native-gate-followup-1",
+  "account": "prvsiyan",
+  "official_snapshot_utc": "2026-10-11T17:29:48.786246+00:00",
+  "official_raw_sha256": "7f065531e4f3d9c2e05b7dc6ccfa5fd9e4ec9582e2fadd43faaad5b1dd74c3d7",
+  "official_rows": [
+    {
+      "ref": 57040312,
+      "date": "2026-10-10T11:04:08.887Z",
+      "fileName": "submission.json",
+      "submittedByRef": "prvsiyan",
+      "url": "/code/prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab?scriptVersionId=357018998",
+      "description": "Public V21: credited koushikrudra/failed-in-aimo V1 recipe (Apache-2.0; NVARC Qwen3-4B grids15_sft139 + per-task LoRA TTT) + our probmul_3 final selection + crc32-pinned seed + per-task logging + fill-only leftover deep pass ON (cannot lose a V19 solve; fills empty/duplicate slots only); bench rows: credited rerun 31.11 | prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab v20 | submission.json sha256 ddc0c7ee0068e13f4e45b683b7af7419300bdc0be6b77a66cace81a98a9d221b"
+    },
+    {
+      "ref": 57016777,
+      "date": "2026-10-09T17:56:28.753Z",
+      "fileName": "submission.json",
+      "submittedByRef": "prvsiyan",
+      "url": "/code/prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab?scriptVersionId=356491928",
+      "description": "Public V19: credited koushikrudra/failed-in-aimo V1 recipe (Apache-2.0; NVARC Qwen3-4B grids15_sft139 + per-task LoRA TTT) + our final-attempt selection by score_full_probmul_3 for both attempts and a crc32-pinned scoring seed; paired with bench row 56951295 | prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab v19 | submission.json sha256 51eb23f10060a05b2f9dad273d9871cf8dddef978e53ac9d34341938dd1c7c41",
+      "status": "COMPLETE",
+      "publicScore": "28.47"
+    },
+    {
+      "ref": 56951295,
+      "date": "2026-10-08T11:23:48.547Z",
+      "fileName": "submission.json",
+      "submittedByRef": "prvsiyan",
+      "url": "/code/prvsiyan/zz-gpuchk-845399?scriptVersionId=356375763",
+      "description": "Credited control rerun of koushikrudra/failed-in-aimo V1 (Apache-2.0; Qwen3-4B grids15_sft139 + per-task LoRA TTT), unchanged recipe with mount-path fallback and an owned 11h40m watchdog | commit run 1766 s, submission.json sha dd0b421d\u2026 | not our method; expected 31-32 per public reruns",
+      "status": "COMPLETE",
+      "publicScore": "31.11"
+    }
+  ],
+  "native": {
+    "arm": "A1",
+    "matches_planned_A1_cells": true,
+    "native_id": "357068939",
+    "ref": "prvsiyan/zz-gpuchk-845399",
+    "source_sha256": "0fad3c813ab16991066a6cf364630756ea5afa42743ed33c673c47c5ce3341f6",
+    "version": 15
+  },
+  "query_count": 13,
+  "task_count": 8,
+  "A0_pool_count": 13,
+  "A1_pool_count": 12,
+  "AA_ordered_top2_flips": 12,
+  "reported_prefix_violations": {
+    "A0": 9,
+    "A1": 8
+  },
+  "registered_pool_expected": 12,
+  "registered_gate_disposition": "FAIL_DISCREPANCY",
+  "adoption": "HOLD",
+  "configuration_parity": {
+    "A0_A1_deadlines_equal": true,
+    "A0_A1_flags_equal": true,
+    "A0_A1_paths_equal": true,
+    "all_other_cell_types_and_source_equal": true,
+    "limitations": "Configured parity is not attestation of byte-identical model/data/runtime assets, weights, RNG states, GPU arithmetic or scheduling.",
+    "numeric_seed_constants": "Python hash0; task/scoring CRC32; peft random_state42; trainer seed42; demo augmentation1; eval augmentation2"
+  },
+  "unmeasured_arms": [
+    "B",
+    "C",
+    "D"
+  ],
+  "inspected_source_sha256": {
+    "A0_patch": "b8d0e495c9cf61641f5606eb51f61fdc629d73d06b64be5d512216b5ed78c081",
+    "A0_receipt": "d53bdd4e6be61a996a3d00c9640507cc36e6cf828f9bb0f937f80884fd5282b9",
+    "A0_root": "acbd702749d78b560b90917618dc975e717bc53b4eef0a8db9b11eb261d59355",
+    "A1_patch": "d16f63fba20ae214cdc467050f716c5f82b7d9c502a90c0ae9d46452e85989f7",
+    "A1_receipt": "18e352b7fe196039fa534df83ead0dc97c0ab57b91baa73511aeec11bbfd65a9",
+    "A1_root": "2262da034505185c0280808bef80ced27b1d93a4197ac02b02ff87091942afe1",
+    "arm_B_runner": "a2a7d525594bf04481698ffa5dc808958ac91e7047078563f6b75959c13b5eec",
+    "fresh_download": "872fdd54d7d907ef3a658a7b5cc0b34dab7b785356af669238bd13261ed82a2d",
+    "fresh_index": "31574e285a3ce179e2582ca3db6a5ae0dcb11c1e0d056e0f9403db31399eebc0",
+    "gate_evaluator": "c2e10eb92fff45e08fe77d9000ce1a73c5c855f0488bed0901f7b72cfd5edbcc",
+    "registered_gates": "37db933a5d803b6b66235070d8fc3ba460113e599ddfc704f2e36214f2c696f6",
+    "selection_cell": "b94511de52fe59c2954c53bc7732c4139cee11fc1edf099fe054eec7d727f719"
+  },
+  "private_audit_sha256": "2f6e3679abb3ca5eaf35707ea28ccb3601316caa1dbe89a9d659d9a2911f88c9",
+  "private_invented_witnesses_sha256": "e7e61c4f4707c0cac63e35f9f98e8048a2e0940fdb2b609c52998cd91c4dbe45",
+  "independent_review_sha256": "3ef01e8f192de1657717fa8b71c1af496c6a0911b11c5c126e40dad0a1d87a5f",
+  "witness_scope": "Invented source counterexamples only; no actual B truth loss or hidden-score cause",
+  "frozen_threshold_changes": 0,
+  "new_native_runs": 0,
+  "submissions": 0,
+  "notebook_changes": 0
+}
