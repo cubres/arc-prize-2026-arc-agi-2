@@ -1,0 +1,83 @@
+{
+  "experiments": {
+    "background": {
+      "actual_result_sha256": "06b40bdff4dc75893b8f3891a482d89e65b6b39c7d33cfc354a67ec9891cd3fd",
+      "counts": {
+        "baseline_any2": 12,
+        "baseline_time_cap": 0,
+        "baseline_top1": 12,
+        "changed_empty_first": 0,
+        "changed_empty_second": 0,
+        "changed_populated_second": 0,
+        "losses": 0,
+        "overlay_changed": 0,
+        "periodic_exact_any2": 0,
+        "periodic_nonempty": 0,
+        "periodic_time_cap": 0,
+        "ties": 400,
+        "treatment_any2": 12,
+        "treatment_top1": 12,
+        "wins": 0
+      },
+      "cpu_seconds": 56.217777999999996,
+      "environment": {
+        "machine": "arm64",
+        "numpy": "2.2.6",
+        "platform": "macOS-26.5.1-arm64-arm-64bit",
+        "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+      },
+      "original_protocol_sha256": "8c8c6066bae1a489b1a05760ac6ff842627af99ed99f2e878339a7654f83bef1",
+      "periodic_max_seconds": 0.0022804999971413054,
+      "periodic_total_seconds": 0.10895353715022793,
+      "pre_target_chain_verification_sha256": "4295018f22847d9fede9f2400f0dc7953cd6ab38c2e4a95b13c1946bd74581b3",
+      "prediction_sha256": "92388af21e7af06983f2652226a1866aad49e513e04cdde305a6875fb938ee2d",
+      "source_freeze_utc": "2026-10-11T23:44:53.876895+00:00",
+      "tasks": 400,
+      "verification_timing": "before analyzer targets",
+      "wall_seconds": 62.45758641699649
+    },
+    "strict": {
+      "actual_result_sha256": "b426d454d02b13d390ca0209d5c0632250e2c66931003c0b36d6b81433b4cee0",
+      "counts": {
+        "baseline_any2": 8,
+        "baseline_time_cap": 0,
+        "baseline_top1": 8,
+        "changed_empty_first": 0,
+        "changed_empty_second": 0,
+        "changed_populated_second": 0,
+        "losses": 0,
+        "overlay_changed": 0,
+        "periodic_exact_any2": 0,
+        "periodic_nonempty": 0,
+        "periodic_time_cap": 0,
+        "ties": 200,
+        "treatment_any2": 8,
+        "treatment_top1": 8,
+        "wins": 0
+      },
+      "cpu_seconds": 23.366336,
+      "environment": "not captured in R1 receipt",
+      "original_protocol_sha256": "18f591488a73711bfb0ef4c0a07e818aff9730976d1d11c9982fc69997880a69",
+      "periodic_max_seconds": 0.002635541000927333,
+      "periodic_total_seconds": 0.03693454305175692,
+      "pre_target_chain_verification_sha256": "dc5f2d17490ff8713e04333bdb3d9ffead680e42b639400cb85a8e9fd529dffa",
+      "prediction_sha256": "3570937a71552ddc865e7ffd82e4f73bc939f220b0b3e9dda7e1858e963625ce",
+      "source_freeze_utc": "2026-10-11T23:41:17.069366+00:00",
+      "tasks": 200,
+      "verification_timing": "after result, no targets opened by addendum",
+      "wall_seconds": 24.3253619169991
+    }
+  },
+  "interpretation": "No measured gain and no natural activation. Public-training experiment, separate from neural/native/official evidence.",
+  "posthoc_diagnosis": {
+    "different_input_output_shape": 125,
+    "exact_repeated_rule_fits_all_demonstrations": 0,
+    "not_one_erased_color": 132,
+    "output_supports_whole_grid_periodicity": 18,
+    "rule_also_has_query_evidence": 0,
+    "same_shape_and_one_erased_color": 143,
+    "tasks": 400
+  },
+  "private_arrays_or_queries_redistributed": false,
+  "schema": "original-periodic-completion-public-aggregate-evidence/1"
+}

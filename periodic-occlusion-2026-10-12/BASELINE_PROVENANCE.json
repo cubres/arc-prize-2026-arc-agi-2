@@ -1,0 +1,45 @@
+{
+  "component": "Original bounded37 grid-program search and identity-color semantic correction",
+  "corrected_source_sha256": "52141a1eb17b5d33b2c528f8571b16eef9f4e784f7a8873d3f62f59f31d1c2cf",
+  "files": [
+    {
+      "bytes": 1063,
+      "matches_owned_prepared_component": true,
+      "name": "baseline37/LICENSE",
+      "sha256": "eed854701ae3433dccb0da2fc34fb3a8b70460bb4cad7f9e1abb4145a6cdbf0e"
+    },
+    {
+      "bytes": 7943,
+      "matches_owned_prepared_component": true,
+      "name": "baseline37/program_search.py",
+      "sha256": "52141a1eb17b5d33b2c528f8571b16eef9f4e784f7a8873d3f62f59f31d1c2cf"
+    },
+    {
+      "bytes": 7642,
+      "matches_owned_prepared_component": true,
+      "name": "baseline37/reference_program_search.py",
+      "sha256": "112c86654ddaaf86c705338c4daa85d8808c3f6e58098380f64e95472cfb1179"
+    },
+    {
+      "bytes": 2935,
+      "matches_owned_prepared_component": true,
+      "name": "baseline37/run_solver.py",
+      "sha256": "9cedcee25671021299763c2e0718d6c81ed1b1d82fd6e663514a452c60fec54d"
+    },
+    {
+      "bytes": 2577,
+      "matches_owned_prepared_component": true,
+      "name": "baseline37/test_program_search.py",
+      "sha256": "24ea9feb09c927da6b98b9b320d107bc1e1fc04f4e02f2dccbd3547b421d5dcc"
+    }
+  ],
+  "no_score_gain_claim": true,
+  "original_component_provenance_sha256": "ad60bccaca77f87b8768325b9bd7a4dd686ba8b2e0cf08497aed3b43ad7e48cc",
+  "ownership_evidence": "Original prepared component provenance records original-software status, author independent-implementation confirmation, no competitor code or solved-task programs copied, and component MIT confirmation. It was PREPARED_FOR_ROOT_REVIEW_NOT_PUBLISHED.",
+  "private_source_or_identifiers_redistributed": false,
+  "reference_source_sha256": "112c86654ddaaf86c705338c4daa85d8808c3f6e58098380f64e95472cfb1179",
+  "reference_usage": "Existing meaningful semantic correction controls only; paired periodic reproduction uses corrected source.",
+  "schema": "owned-corrected37-additive-source-provenance/1",
+  "software_license": "MIT component only; existing repository license unchanged",
+  "source_data_redistributed": false
+}

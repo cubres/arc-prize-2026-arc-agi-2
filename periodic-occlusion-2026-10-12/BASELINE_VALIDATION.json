@@ -1,0 +1,26 @@
+{
+  "baseline_cli_invented_example": "PASS, depth0 identity preserves unseen query color9",
+  "checks": {
+    "included_baseline_exact": true,
+    "old_ten_file_packet_preserved_exact": true,
+    "old_transport_preserved_exact": true
+  },
+  "full600_task_publication_reproduction_executed": false,
+  "native_or_official_gain": false,
+  "publication_adapter_with_included_baseline": {
+    "evaluate": "PASS; after paired prediction seal",
+    "not_ARC_accuracy_evidence": true,
+    "one_invented_operator_activation": true,
+    "predict": "PASS; separate process, exact included baseline SHA and labels unread by policy",
+    "prepare": "PASS; one invented fixture and mocked network"
+  },
+  "schema": "owned-corrected37-additive-reproduction-validation/1",
+  "synthetic_existing_controls": {
+    "count": 8,
+    "result": "PASS",
+    "runtime_seconds_reported_by_unittest": 0.003,
+    "scope": "meaningful invented semantic regressions only, no official tasks",
+    "test_source_unchanged": true
+  },
+  "verified_utc": "2026-10-12T00:02:10.488382+00:00"
+}

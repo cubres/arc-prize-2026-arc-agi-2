@@ -1,0 +1,28 @@
+{
+  "CLI_help_exit_zero": true,
+  "actual_native_notebook_mutation": false,
+  "actual_scientific_results_from_original_workers": true,
+  "all_python_sources_ast_parse": true,
+  "both_solver_sources_match_original_frozen_bytes": true,
+  "diagram_verified": {
+    "Arial_font_matched_raster_preview_visually_inspected": true,
+    "QuickLook_square_thumbnail_cropped_so_not_used_for_layout_qualification": true,
+    "XML_valid": true,
+    "all27_text_bounds_inside1200x700": true
+  },
+  "official_score_gain_claim": false,
+  "optimization_flag_rejected_before_reproduction": true,
+  "publication_adapter_full600_task_rerun": false,
+  "publication_adapter_staged_invented_smoke": {
+    "evaluate": "PASS after prediction seal",
+    "expected_one_invented_overlay_change": true,
+    "expected_one_invented_periodic_activation": true,
+    "final_source_retested_in_separate_fresh_fixture_directory": true,
+    "mechanism_only_not_ARC_accuracy": true,
+    "predict": "PASS in separate audited label-blind process",
+    "prepare": "PASS, network mocked to one invented fixture"
+  },
+  "publication_scope": "Original solver/tool/aggregate receipts/official public filename metadata and diagram. No grids, answers, weights, neural source, benchmark duplicate or private task IDs.",
+  "schema": "arc2-periodic-publication-validation/1",
+  "verified_utc": "2026-10-11T23:53:50.824042+00:00"
+}
