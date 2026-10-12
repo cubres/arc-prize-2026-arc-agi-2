@@ -1,0 +1,78 @@
+{
+  "baseline": {
+    "beam": 96,
+    "max_depth": 3,
+    "seconds": 1.8,
+    "state_cap": 10000
+  },
+  "candidate_policy": "retain first16distinct joint grids per family; continue allfiniteprograms and track all distinct signatures, report storage truncation separately; preserve baseline firsttwo guesses",
+  "challenge": {
+    "bytes": 984679,
+    "query_outputs_absent": true,
+    "sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+    "sorted_task_inventory_sha256": "de177061609276f360f78795a498f7105922bd672581eb629d64ddbe19cf020f"
+  },
+  "experiment_id": "arc2-original-relational-families-evaluation120-20261012-v1",
+  "input_only_endpoint": "number of120tasks with direct exact demonstration fits per family BEFOREquery applicability; complete finite enumeration required",
+  "limits": {
+    "gpu_seconds": 0,
+    "native_server_seconds": 480,
+    "process_cpu_hard_seconds": 410,
+    "process_cpu_soft_seconds": 400,
+    "tpu_seconds": 0,
+    "whole_process_wall_seconds": 420
+  },
+  "local_signal_rule": "atleast1pairedquerywin and zero pairedquerylosses; demonstrationfit iscoverage only, notqueryaccuracy/neuralcomplementarity/officialscore",
+  "native_launch_performed": false,
+  "neural_complementarity_measured": false,
+  "official_score": null,
+  "official_submission_allowed": false,
+  "output_policy": "root-owned new directory, exclusive files, preserve every partial/failure, no retry/overwrite experiment output identity",
+  "portable_variant_status": "SOURCE_ONLY_NOT_ACTUAL_RUN",
+  "primary_endpoint": "per-query exact-at-two, independently match each query against either protected/treatment attempt",
+  "queries": 172,
+  "root_outer_requirement": "No overlapping local worker; nice5; parent enforces450s total across prediction and optional evaluation; prediction child must exit0 with no failure and bound final complete marker before any evaluation invocation",
+  "schema": "arc2-relational-families-frozen-cpu-protocol/1",
+  "scope": "Source-only preregistration for root-owned full exposed evaluation120 input-only prediction; optional separate local score only after complete prediction qualification",
+  "solution": {
+    "author_opened": false,
+    "bytes": 223838,
+    "sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1"
+  },
+  "source_files": {
+    "BASELINE_LICENSE": {
+      "bytes": 1063,
+      "sha256": "eed854701ae3433dccb0da2fc34fb3a8b70460bb4cad7f9e1abb4145a6cdbf0e"
+    },
+    "LICENSE": {
+      "bytes": 11485,
+      "sha256": "ed646ba5c54cd52a084a3f2f7a6dc44170db2601f1d2fe97ef480bd3eda04ef6"
+    },
+    "baseline37.py": {
+      "bytes": 7943,
+      "sha256": "52141a1eb17b5d33b2c528f8571b16eef9f4e784f7a8873d3f62f59f31d1c2cf"
+    },
+    "controls.py": {
+      "bytes": 7996,
+      "sha256": "e795ed39930a628fcce038af2ec93be2c60ca8a235c43775c2d3d44c704212ce"
+    },
+    "object_selector.py": {
+      "bytes": 9245,
+      "sha256": "9926c66261bd1b97a206ae5808f6208e717fe7544b0cc57c75589d0d39f0d391"
+    },
+    "relational_families.py": {
+      "bytes": 12606,
+      "sha256": "94d77a8592acc32427571b237e666c1f13de9b4046e471f1eca159a3b019abcd"
+    },
+    "run_relational_eval.py": {
+      "bytes": 22952,
+      "sha256": "49ef3cc4f38ac766a8295d1eff25825551898780414276872cfa26bb11d38e13"
+    }
+  },
+  "structural": {
+    "candidate_cap": 16,
+    "group_seconds": 0.4,
+    "interval_seconds": 0.8
+  },
+  "tasks": 120
+}

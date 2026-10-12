@@ -1,0 +1,124 @@
+{
+  "input_only_coverage_receipt": {
+    "challenge_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+    "claim_limit": "Public demonstration coverage and query-input applicability only; predictions sealed, no query answers opened",
+    "counts": {
+      "any_family_demo_fit_tasks": 0,
+      "interval_paint_candidate_tasks": 0,
+      "interval_paint_demo_fit_tasks": 0,
+      "interval_paint_demo_fitting_programs": 0,
+      "interval_paint_prediction_storage_truncated_tasks": 0,
+      "interval_paint_query_inapplicable_programs": 0,
+      "repeated_group_candidate_tasks": 0,
+      "repeated_group_demo_fit_tasks": 0,
+      "repeated_group_demo_fitting_programs": 0,
+      "repeated_group_prediction_storage_truncated_tasks": 0,
+      "repeated_group_query_inapplicable_programs": 0
+    },
+    "experiment_id": "arc2-original-relational-families-evaluation120-20261012-v1",
+    "official_score": null,
+    "prediction_sha256": "af748166c11e1f30e876e4a913e0bb4ac66db07d05b9cb2fbca7488c6566e80f",
+    "protocol_sha256": "1e78d2755671d11ab84fb69b202e937a3e0fc3237ed14fb7362ea182b0ad1f1a",
+    "quality_claim": false,
+    "queries": 172,
+    "query_answers_read": false,
+    "status": "COMPLETE_SEALED_INPUT_ONLY_COVERAGE",
+    "tasks": 120
+  },
+  "invented_controls": {
+    "count": 13,
+    "scope": "Handwritten synthetic expectations, semantic guards, and storage-cap independence; not benchmark accuracy",
+    "status": "PASS"
+  },
+  "publication_scope": "Exact original CPU solver, aggregate data, invented controls, and original analysis only; no benchmark identifiers, grids, predictions, or answers",
+  "result": {
+    "baseline_wall_seconds": 16.81693479299429,
+    "challenge_sha256": "e7c62a4bd211867c6b538f66b8013b81f299663c82ca062f49a52bf439d6e4e8",
+    "claim_limit": "All120 official exposed evaluation tasks/172queries; new structural-family comparison, historical exposure unknown; no hidden, neural-control or official-score claim",
+    "complete_tasks": 120,
+    "counts": {
+      "added_joint_guesses": 0,
+      "baseline_query_solves": 0,
+      "baseline_task_solves": 0,
+      "baseline_time_cap_tasks": 0,
+      "natural_structural_activation_tasks": 0,
+      "new_guess_tasks": 0,
+      "paired_query_losses": 0,
+      "paired_query_wins": 0,
+      "paired_task_losses": 0,
+      "paired_task_wins": 0,
+      "queries": 172,
+      "structural_prediction_storage_truncated_tasks": 0,
+      "structural_search_incomplete_tasks": 0,
+      "treatment_query_solves": 0,
+      "treatment_task_solves": 0
+    },
+    "environment": {
+      "numpy": "2.2.6",
+      "platform": "macOS-26.5.1-arm64-arm-64bit",
+      "python": "3.12.14 (main, Aug 25 2026, 13:50:33) [Clang 22.1.3 ]"
+    },
+    "evaluation_elapsed_cpu_seconds": 0.013426,
+    "evaluation_elapsed_wall_seconds": 0.014523625002766494,
+    "experiment_id": "arc2-original-relational-families-evaluation120-20261012-v1",
+    "input_only_coverage": {
+      "any_family_demo_fit_tasks": 0,
+      "interval_paint_candidate_tasks": 0,
+      "interval_paint_demo_fit_tasks": 0,
+      "interval_paint_demo_fitting_programs": 0,
+      "interval_paint_prediction_storage_truncated_tasks": 0,
+      "interval_paint_query_inapplicable_programs": 0,
+      "repeated_group_candidate_tasks": 0,
+      "repeated_group_demo_fit_tasks": 0,
+      "repeated_group_demo_fitting_programs": 0,
+      "repeated_group_prediction_storage_truncated_tasks": 0,
+      "repeated_group_query_inapplicable_programs": 0
+    },
+    "neural_complementarity_measured": false,
+    "official_score": null,
+    "positive_local_signal": false,
+    "prediction_elapsed_cpu_seconds": 26.770404,
+    "prediction_elapsed_wall_seconds": 31.47303191699757,
+    "prediction_seal_sha256": "826502751a42f620938a96ea999a099723d557d3f70180e96abbb5300b1df86f",
+    "prediction_sha256": "af748166c11e1f30e876e4a913e0bb4ac66db07d05b9cb2fbca7488c6566e80f",
+    "prediction_total_process_cpu_seconds": 26.812254,
+    "primary_endpoint": "per-query exact-at-two with independently matched attempt for each query",
+    "protocol_sha256": "1e78d2755671d11ab84fb69b202e937a3e0fc3237ed14fb7362ea182b0ad1f1a",
+    "query_answers_first_opened_after_complete_prediction_seal": true,
+    "secondary_task_endpoint": "all queries of a task equal one of the two joint guesses; stricter than contest per-query metric",
+    "solution_sha256": "84be4f4f39b79e82c36d565fc878830988b094917f052ee7069aef30b33ca8f1",
+    "source_files": {
+      "BASELINE_LICENSE": {
+        "bytes": 1063,
+        "sha256": "eed854701ae3433dccb0da2fc34fb3a8b70460bb4cad7f9e1abb4145a6cdbf0e"
+      },
+      "LICENSE": {
+        "bytes": 11485,
+        "sha256": "ed646ba5c54cd52a084a3f2f7a6dc44170db2601f1d2fe97ef480bd3eda04ef6"
+      },
+      "baseline37.py": {
+        "bytes": 7943,
+        "sha256": "52141a1eb17b5d33b2c528f8571b16eef9f4e784f7a8873d3f62f59f31d1c2cf"
+      },
+      "controls.py": {
+        "bytes": 7996,
+        "sha256": "e795ed39930a628fcce038af2ec93be2c60ca8a235c43775c2d3d44c704212ce"
+      },
+      "object_selector.py": {
+        "bytes": 9245,
+        "sha256": "9926c66261bd1b97a206ae5808f6208e717fe7544b0cc57c75589d0d39f0d391"
+      },
+      "relational_families.py": {
+        "bytes": 12606,
+        "sha256": "94d77a8592acc32427571b237e666c1f13de9b4046e471f1eca159a3b019abcd"
+      },
+      "run_relational_eval.py": {
+        "bytes": 22952,
+        "sha256": "49ef3cc4f38ac766a8295d1eff25825551898780414276872cfa26bb11d38e13"
+      }
+    },
+    "status": "COMPLETE_EXPOSED_DEVELOPMENT_COMPARISON",
+    "structural_cpu_seconds": 11.743034999999997
+  },
+  "schema": "arc2-original-relational-public-aggregate/1"
+}
