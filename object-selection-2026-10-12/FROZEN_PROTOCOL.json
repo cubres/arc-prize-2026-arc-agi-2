@@ -1,0 +1,84 @@
+{
+  "baseline": {
+    "beam": 96,
+    "max_depth": 3,
+    "seconds": 1.8,
+    "state_cap": 10000
+  },
+  "claim_limit": "process-disjoint local screen; unknown historical human/model exposure; no hidden or official-score claim",
+  "dataset": "arcprize/ARC-AGI-2 official public training only",
+  "experiment_id": "arc2-object-role-fill-only-untouched-training-200-oct12-v1",
+  "filename_tree_sha256": "efe876dd473c59d8e9db08677506d0d634d59a00b38726632a77b18c348f61d8",
+  "frozen_utc": "2026-10-12T09:51:26.509172+00:00",
+  "inspiration": {
+    "code_copied": false,
+    "license": "Apache-2.0 notebook, saved Oct11 browser verification",
+    "source_sha256": "a2f3b8d07805cffecf57e15711ab75f9cd866f471aa0e4256b8abb04e12328fc",
+    "source_url": "https://www.kaggle.com/code/lucifer19/arc-agi-2-blackcat-raw-signal-challenger?scriptVersionId=341435188"
+  },
+  "object_selector": {
+    "ambiguous_selection": "abstain",
+    "candidate_cap": 32,
+    "every_demo_exact": true,
+    "query_color_keys_supported": true,
+    "seconds": 0.4
+  },
+  "overlay": "retain first2distinct baseline joint guesses then fill genuinely spare slots",
+  "primary_endpoint": "all-query exact task by at most2joint guesses; paired gain/loss against exact baseline37",
+  "promotion": "at least2paired task wins, zero losses, complete200records; native stronger31.11 control remains untested",
+  "ranking": "fixed background/connectivity/monochrome/selector/render/D4 enumeration; distinct joint query outputs",
+  "revision": "f3283f727488ad98fe575ea6a5ac981e4a188e49",
+  "schema": "arc2-original-object-role-frozen-screen/1",
+  "secondary": [
+    "per-query exact-at-two",
+    "natural accepted-object activation",
+    "distinct guesses added",
+    "caps",
+    "runtime"
+  ],
+  "selection": "all200 remaining after exclusion of800 previously screened training tasks; order SHA256(experiment:path)",
+  "sources": [
+    {
+      "bytes": 7943,
+      "name": "baseline37.py",
+      "sha256": "52141a1eb17b5d33b2c528f8571b16eef9f4e784f7a8873d3f62f59f31d1c2cf"
+    },
+    {
+      "bytes": 9245,
+      "name": "object_selector.py",
+      "sha256": "9926c66261bd1b97a206ae5808f6208e717fe7544b0cc57c75589d0d39f0d391"
+    },
+    {
+      "bytes": 3651,
+      "name": "worker.py",
+      "sha256": "3162865922e340b3aaaab7bf0da7d03b6f46ae437f58ccd4e226b9011786e0fd"
+    },
+    {
+      "bytes": 3634,
+      "name": "evaluate.py",
+      "sha256": "37517e517594276a63047becb276d06bc1e8e884ee74d807cf1afb34ca5012e5"
+    },
+    {
+      "bytes": 1993,
+      "name": "invented_controls.py",
+      "sha256": "03fe69499b62718efeddaf0d1da017367ae073f27195c46037013f8a257df53f"
+    },
+    {
+      "bytes": 6734,
+      "name": "prepare.py",
+      "sha256": "586d14e97e65983101d8d5d0a7da1c7b11de2388005b8a7fc0ee4857e6b76ba2"
+    }
+  ],
+  "tasks": 200,
+  "training_tree": "dac7259367cc5099ef6a7b604a50a93affbbee33",
+  "worker": {
+    "child_processes": false,
+    "cooperative_wall_seconds": 590,
+    "cpu_hard_seconds": 580,
+    "cpu_soft_seconds": 570,
+    "network": false,
+    "nice": 5,
+    "query_target_reads": false,
+    "task_ids_passed_to_policy": false
+  }
+}

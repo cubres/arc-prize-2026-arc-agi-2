@@ -1,0 +1,29 @@
+{
+  "baseline_wall_seconds": 26.317219789999985,
+  "claim_limit": "200 process-disjoint official public-training tasks; not guaranteed historically unseen; not hidden score",
+  "complete": true,
+  "counts": {
+    "added_joint_guesses": 2,
+    "baseline_query_solves": 2,
+    "baseline_task_solves": 2,
+    "baseline_time_cap_tasks": 0,
+    "new_guess_tasks": 2,
+    "object_cap_tasks": 0,
+    "object_demonstration_fit_programs": 2,
+    "object_natural_activation_tasks": 2,
+    "paired_task_losses": 0,
+    "paired_task_wins": 2,
+    "queries": 214,
+    "treatment_query_solves": 4,
+    "treatment_task_solves": 4
+  },
+  "elapsed_cpu_seconds": 33.341669,
+  "elapsed_wall_seconds": 33.465580958,
+  "neural31_11_complementarity_measured": false,
+  "object_cpu_seconds": 7.016316000000005,
+  "official_score": null,
+  "prediction_sha256": "acafad00a4362e16d0eed04ac7b4a8210f7e38f0af7519ca5c92d754514015b2",
+  "protocol_sha256": "fb01fad510692430649a26454b512c64863f993d4e4abecc362d508e3fd64a89",
+  "scientific_gate_pass": true,
+  "tasks": 200
+}
