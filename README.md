@@ -1,6 +1,12 @@
 # arc-prize-2026-arc-agi-2
 ARC-AGI-2 experiments, notebook provenance, runtime studies and verified Kaggle progress for prvsiyan.
 
+## Latest measured experiment · 12 October
+
+[Connected-object selection](object-selection-2026-10-12/README.md) adds two solves to an owned baseline on a 200-task public-training screen: **2 → 4 solves, two gains and no losses**. The folder includes runnable controls, source pins and a reproducible chart. Its benefit alongside the 31.11 neural control remains unmeasured.
+
+![Measured object-rule screen](object-selection-2026-10-12/measured-object-screen.svg)
+
 ## Earlier experiments worth reading
 
 Existing public campaign notebook: [ARC-AGI-2 Public Frontier Perfpatch Evidence Lab](https://www.kaggle.com/code/prvsiyan/arc-agi-2-public-frontier-perfpatch-evidence-lab). This stable identity was observed public in the retained 11 October snapshot; the guide makes no current run-status or score claim.
