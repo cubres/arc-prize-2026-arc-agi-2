@@ -1,0 +1,13 @@
+ARC2 Parser Lab
+Copyright 2026 cubres.
+
+Original checker, invented fixtures, documentation and diagram: Apache-2.0.
+No upstream notebook implementation, model, weights, training code, task grids,
+competition answers or private experiment receipts are included.
+
+Behavioral reference:
+Koushik Rudra, Failed in AIMO, Kaggle notebook version 1, native 312063593.
+https://www.kaggle.com/code/koushikrudra/failed-in-aimo?scriptVersionId=312063593
+The referenced notebook's retained public card declares Apache-2.0.
+This lab independently models its declared digit/newline/EOS grid language.
+The upstream score and GPU execution are not results of this lab.

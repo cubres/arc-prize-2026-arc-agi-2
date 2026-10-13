@@ -1,0 +1,57 @@
+{
+  "accepted_occurrences": 7002,
+  "alphabet": {
+    "arbitrary_token_validation": false,
+    "eos": 15,
+    "eos_handled_separately": true,
+    "interchangeable_fixture_digits": [
+      0,
+      1
+    ],
+    "newline": 10
+  },
+  "boundary_controls": 10,
+  "canonical_occurrence_preservation": true,
+  "claim_limits": {
+    "actual_tokenizer_or_foreign_parser_execution": false,
+    "arc_accuracy": null,
+    "independent_treatment_likelihood_seal": false,
+    "native_likelihoods_or_ranking_measured": false,
+    "native_speedup": null,
+    "official_score": null
+  },
+  "execution": {
+    "models": 0,
+    "native_runs": 0,
+    "nice": 5,
+    "official_tasks": 0,
+    "outer_cpu_limit_seconds": 30,
+    "outer_wall_alarm_seconds": 45,
+    "stdlib_only": true,
+    "workers": 1
+  },
+  "exhaustive_body_lengths": [
+    0,
+    9
+  ],
+  "invented_reference_cost_grid_seal_sha256": "b29257be8a6fa40ea72afaab6c6b58a06be484a95708242b20e7c5bc664e4350",
+  "irreparable_paths": 18328,
+  "measurement_date_utc": "2026-10-13",
+  "original_code_license": "Apache-2.0",
+  "paths": 29524,
+  "primary_behavioral_reference": "https://www.kaggle.com/code/koushikrudra/failed-in-aimo?scriptVersionId=312063593",
+  "qualification": "PASS_INVENTED_LANGUAGE_FIXTURES_ONLY",
+  "raw_emission_order_tested": false,
+  "schema": "arc2-parser-lab-public-invented-aggregate/1",
+  "synthetic_nonterminal_expansions": {
+    "pruned": 4745,
+    "unpruned": 9841
+  },
+  "timing_seconds": {
+    "independent_cpu": 0.186851,
+    "independent_wall": 0.188483,
+    "original_cpu": 0.185205,
+    "original_wall": 0.186782
+  },
+  "tool_sha256": "e03376064aa7de87578f27a146c6f1772879fca4a18804a38934b5dd418714cf"
+}

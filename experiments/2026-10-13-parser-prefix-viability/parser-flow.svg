@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="800" viewBox="0 0 1040 800" role="img" aria-labelledby="title desc">
+ <title id="title">ARC2 parser-compatible prefix pruning and qualification boundaries</title>
+ <desc id="desc">An invented digit/newline prefix is tracked by nonempty row count, first-row width and current width. Irreparable retained rows stop that branch. Blank rows and tails after thirty consistent nonempty rows stay allowed. EOS leads to a canonical occurrence check. Real tokenizer, likelihood, candidate ranking and GPU behavior remain untested.</desc>
+ <defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#475569"/></marker>
+ </defs>
+ <rect width="1040" height="800" fill="#f8fafc"/>
+ <g font-family="Arial, sans-serif" fill="#0f172a">
+  <text x="52" y="50" font-size="25" font-weight="700">Keep accepted grid paths; skip impossible continuations</text>
+  <text x="52" y="80" font-size="16" fill="#475569">Original invented CPU lab • no model, task data or native execution</text>
+  <rect x="250" y="115" width="540" height="70" rx="12" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="520" y="143" font-size="20" text-anchor="middle" font-weight="700">Digit / newline prefix</text>
+  <text x="520" y="169" font-size="16" text-anchor="middle">Declared tokens: digits 0–9, newline 10; EOS 15 separately</text>
+  <path d="M520 185 V222" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="250" y="226" width="540" height="100" rx="12" fill="#e0f2fe" stroke="#38bdf8"/>
+  <text x="520" y="255" font-size="20" text-anchor="middle" font-weight="700">Track three facts</text>
+  <text x="520" y="284" font-size="17" text-anchor="middle">Nonempty rows closed • first width • current width</text>
+  <text x="520" y="310" font-size="16" text-anchor="middle" fill="#475569">Blank rows change none of these facts</text>
+  <path d="M520 326 V366" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="300" y="370" width="440" height="90" rx="12" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="520" y="400" font-size="20" text-anchor="middle" font-weight="700">Can any suffix still be accepted?</text>
+  <text x="520" y="427" font-size="16" text-anchor="middle">Only the first 30 nonempty rows are retained</text>
+  <path d="M300 415 H168 V485" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="205" y="405" font-size="16" fill="#9f1239">No</text>
+  <rect x="45" y="489" width="290" height="100" rx="12" fill="#ffe4e6" stroke="#fb7185"/>
+  <text x="190" y="518" font-size="20" text-anchor="middle" font-weight="700">Stop this branch</text>
+  <text x="190" y="544" font-size="16" text-anchor="middle">Retained row too wide or</text>
+  <text x="190" y="567" font-size="16" text-anchor="middle">closed with unequal width</text>
+  <path d="M740 415 H870 V485" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="805" y="405" font-size="16" fill="#166534">Yes</text>
+  <rect x="700" y="489" width="295" height="100" rx="12" fill="#dcfce7" stroke="#4ade80"/>
+  <text x="847" y="518" font-size="20" text-anchor="middle" font-weight="700">Keep exploring</text>
+  <text x="847" y="544" font-size="16" text-anchor="middle">Short rows can grow; tails</text>
+  <text x="847" y="567" font-size="16" text-anchor="middle">after row 30 remain allowed</text>
+  <path d="M847 589 V619 H282 V636" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <rect x="45" y="642" width="475" height="108" rx="12" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="282" y="671" font-size="20" text-anchor="middle" font-weight="700">EOS + canonical occurrence check</text>
+  <text x="282" y="699" font-size="16" text-anchor="middle">29,524 invented paths • 10 boundary controls</text>
+  <text x="282" y="725" font-size="16" text-anchor="middle">Sorted occurrences preserved; raw order untested</text>
+  <rect x="555" y="642" width="440" height="108" rx="12" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="775" y="671" font-size="20" text-anchor="middle" font-weight="700">Native qualification remains open</text>
+  <text x="775" y="699" font-size="16" text-anchor="middle">Tokenizer • likelihoods • ranking • batching</text>
+  <text x="775" y="725" font-size="16" text-anchor="middle">GPU runtime • memory • ARC accuracy</text>
+ </g>
+</svg>
