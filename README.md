@@ -1,7 +1,13 @@
 # arc-prize-2026-arc-agi-2
 ARC-AGI-2 experiments, notebook provenance, runtime studies and verified Kaggle progress for prvsiyan.
 
-## Latest measured experiment · 12 October
+## Latest reproducible tool · 14 October
+
+[Proposal-origin support probe](proposal-origin-support-2026-10-14/README.md) checks whether copying the same proposal changes a count-based selector. The original dependency-free tool passed **95 checks**: among **24 invented duplicate trials**, raw support changed the ordered pair in **16** and the retained answer set in **8**; counting each declared event once changed neither. It includes runnable examples, source-bound measured results and a diagram. These are synthetic mechanics; their effect on real ARC accuracy remains unmeasured.
+
+![One copied proposal and its effect on the retained answers](proposal-origin-support-2026-10-14/duplicate-proposal-support.svg)
+
+## Earlier measured experiment · 12 October
 
 [Connected-object selection](object-selection-2026-10-12/README.md) adds two solves to an owned baseline on a 200-task public-training screen: **2 → 4 solves, two gains and no losses**. The folder includes runnable controls, source pins and a reproducible chart. Its benefit alongside the 31.11 neural control remains unmeasured.
 

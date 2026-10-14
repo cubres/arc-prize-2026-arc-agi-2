@@ -1,0 +1,52 @@
+{
+  "NumPy_bit_parity_claim": false,
+  "accuracy_or_speedup_claim": false,
+  "actual_root_stdout_sha256": "b4b9e61d093b54d14df222119f34744f0eadd854e15e433a14db64131156b344",
+  "actual_root_wrapper_result_sha256": "d3bdde645b9d0d9907dff611dc3b26d090b1f4f46de7dbc81ea9b928b7aeb6b9",
+  "checks_passed": 95,
+  "competition_data_used": false,
+  "control_ordered_top_two": [
+    "B",
+    "A"
+  ],
+  "diagram_witness": {
+    "extra_copies_of_event_c": 1,
+    "origin_deduplicated_ordered_top_two": [
+      "B",
+      "A"
+    ],
+    "raw_ordered_top_two": [
+      "C",
+      "B"
+    ],
+    "raw_retained_output_set_changed": true
+  },
+  "duplicate_trials": 24,
+  "extra_identical_origin_copy_counts": [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128
+  ],
+  "max_trial_records": 131,
+  "model_or_checkpoint_payloads_used": false,
+  "native_runtime_or_current_Kaggle_mount_qualification": false,
+  "observed_utc": "2026-10-13T23:48:22.159570+00:00",
+  "ordered_top_two_changes": 16,
+  "origin_deduplicated_ordered_top_two_changes": 0,
+  "origin_deduplicated_retained_output_set_changes": 0,
+  "publication_preparation_reran_probe": false,
+  "root_process_exit_code": 0,
+  "root_stderr_bytes": 0,
+  "schema": "original.proposal-origin-support.synthetic-result.v1",
+  "scope": "invented candidate names, declared event identities and scalar scores only",
+  "source_sha256": "7319f5d113ae90c3a2cda7803779173f8e40f78e33a723f1d54a7d542073aeec",
+  "statistical_independence_inferred": false,
+  "status": "PASS_ACTUAL_SYNTHETIC_SELECTOR_MECHANICS_ONLY",
+  "truth_labels_used": false,
+  "unordered_retained_output_set_changes": 8
+}

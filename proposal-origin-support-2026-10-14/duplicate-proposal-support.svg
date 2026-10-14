@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="850" viewBox="0 0 1280 850" role="img" aria-labelledby="title desc">
+  <title id="title">One copied proposal can change the retained answer set</title>
+  <desc id="desc">Synthetic illustration. Four records contain A at augmented NLL 0.2, B at 0.1, and two identical copies of event-c producing C at 0.3. Counting every record gives C score 1.7 and chooses C and B. Counting event-c once gives C score 0.7 and chooses B and A. No correctness labels are used.</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, Arial, sans-serif; fill: #16324f; }
+      .title { font-size: 35px; font-weight: 700; }
+      .sub { font-size: 17px; fill: #51667a; }
+      .heading { font-size: 24px; font-weight: 700; }
+      .body { font-size: 18px; }
+      .small { font-size: 16px; fill: #51667a; }
+      .value { font-size: 22px; font-weight: 700; }
+      .pill { font-size: 20px; font-weight: 700; }
+      .letter { font-size: 24px; font-weight: 700; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#889aae"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="850" fill="#f3f6fa"/>
+  <text x="34" y="56" class="title">When the same proposal is counted twice</text>
+  <text x="35" y="90" class="sub">Synthetic concept illustration · letters represent complete outputs · no truth labels</text>
+
+  <rect x="30" y="124" width="336" height="515" rx="20" fill="#ffffff" stroke="#d7e1eb"/>
+  <rect x="402" y="124" width="399" height="515" rx="20" fill="#ffffff" stroke="#d7e1eb"/>
+  <rect x="837" y="124" width="413" height="515" rx="20" fill="#ffffff" stroke="#d7e1eb"/>
+
+  <text x="52" y="163" class="heading">The same four records</text>
+  <text x="52" y="191" class="small">Individual event identity is retained.</text>
+  <text x="426" y="163" class="heading">Count every record</text>
+  <text x="426" y="191" class="small">Raw kgmon arithmetic</text>
+  <text x="861" y="163" class="heading">Count each event once</text>
+  <text x="861" y="191" class="small">Only exact copied event-c is ignored.</text>
+
+  <g>
+    <rect x="50" y="216" width="296" height="71" rx="12" fill="#edf3fb"/>
+    <text x="66" y="247" class="letter">A</text><text x="106" y="245" class="body">event-a</text>
+    <text x="106" y="272" class="small">augmented NLL 0.20</text>
+    <rect x="50" y="302" width="296" height="71" rx="12" fill="#edf3fb"/>
+    <text x="66" y="333" class="letter">B</text><text x="106" y="331" class="body">event-b</text>
+    <text x="106" y="358" class="small">augmented NLL 0.10</text>
+    <rect x="50" y="388" width="296" height="71" rx="12" fill="#fff0dc" stroke="#f2ba67"/>
+    <text x="66" y="419" class="letter">C</text><text x="106" y="417" class="body">event-c</text>
+    <text x="106" y="444" class="small">augmented NLL 0.30</text>
+    <rect x="50" y="474" width="296" height="71" rx="12" fill="#fff0dc" stroke="#e09a37" stroke-dasharray="5 4"/>
+    <text x="66" y="505" class="letter">C</text><text x="106" y="503" class="body">event-c · exact copy</text>
+    <text x="106" y="530" class="small">augmented NLL 0.30</text>
+    <text x="52" y="584" class="body">Distinct events may agree.</text>
+    <text x="52" y="611" class="small">Equal outputs alone are not duplicates.</text>
+  </g>
+
+  <path d="M 372 250 L 394 250" fill="none" stroke="#889aae" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <path d="M 384 247 L 384 111 L 826 111 L 826 250 L 833 250" fill="none" stroke="#889aae" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <g>
+    <text x="426" y="244" class="body">C</text>
+    <rect x="457" y="224" width="258" height="28" rx="6" fill="#e8a547"/>
+    <text x="734" y="246" class="value">1.70</text>
+    <text x="457" y="279" class="small">2 records − 0.30</text>
+    <text x="426" y="334" class="body">B</text>
+    <rect x="457" y="314" width="137" height="28" rx="6" fill="#4e86c5"/>
+    <text x="734" y="336" class="value">0.90</text>
+    <text x="457" y="369" class="small">1 record − 0.10</text>
+    <text x="426" y="424" class="body">A</text>
+    <rect x="457" y="404" width="121" height="28" rx="6" fill="#4e86c5"/>
+    <text x="734" y="426" class="value">0.80</text>
+    <text x="457" y="459" class="small">1 record − 0.20</text>
+    <rect x="424" y="491" width="353" height="121" rx="14" fill="#fff6e9" stroke="#e8c38e"/>
+    <text x="442" y="524" class="small">Two retained outputs</text>
+    <text x="442" y="562" class="pill">C + B</text>
+    <text x="442" y="591" class="small">A leaves the retained output set.</text>
+  </g>
+  <g>
+    <text x="861" y="244" class="body">B</text>
+    <rect x="892" y="224" width="137" height="28" rx="6" fill="#4e86c5"/>
+    <text x="1177" y="246" class="value">0.90</text>
+    <text x="892" y="279" class="small">1 event − 0.10</text>
+    <text x="861" y="334" class="body">A</text>
+    <rect x="892" y="314" width="121" height="28" rx="6" fill="#4e86c5"/>
+    <text x="1177" y="336" class="value">0.80</text>
+    <text x="892" y="369" class="small">1 event − 0.20</text>
+    <text x="861" y="424" class="body">C</text>
+    <rect x="892" y="404" width="106" height="28" rx="6" fill="#e8a547"/>
+    <text x="1177" y="426" class="value">0.70</text>
+    <text x="892" y="459" class="small">1 event − 0.30</text>
+    <rect x="859" y="491" width="365" height="121" rx="14" fill="#edf7f3" stroke="#aed2c3"/>
+    <text x="877" y="524" class="small">Two retained outputs</text>
+    <text x="877" y="562" class="pill">B + A</text>
+    <text x="877" y="591" class="small">Original retained output set remains.</text>
+  </g>
+
+  <rect x="30" y="665" width="1220" height="153" rx="19" fill="#e7eef7"/>
+  <text x="54" y="699" class="heading">Measured synthetic panel: 95 checks passed · 24 duplicate trials</text>
+  <text x="54" y="731" class="body">Raw selector: 16 ordered-pair changes; 8 retained-output-set changes. Event dedup: 0 changes.</text>
+  <text x="54" y="762" class="body">Score = support count − mean(per-record mean augmented NLL). Bars share one score scale.</text>
+  <text x="54" y="793" class="small">This measures mechanics only. It cannot establish correctness, statistical independence or better ARC accuracy.</text>
+</svg>
